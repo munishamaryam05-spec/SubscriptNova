@@ -14,6 +14,7 @@ import {
   Percent,
   BarChart3,
   ExternalLink,
+  ShieldAlert,
 } from 'lucide-react';
 import { NavigationTab } from '../../types/navigation';
 import { MODULE_ROADMAP, NAVIGATION_ITEMS } from '../../data/mockData';
@@ -34,6 +35,7 @@ const TAB_ICONS: Record<NavigationTab, React.ComponentType<{ className?: string 
   invoices: FileText,
   payments: CreditCard,
   discounts: Percent,
+  leakage: ShieldAlert,
   analytics: BarChart3,
 };
 

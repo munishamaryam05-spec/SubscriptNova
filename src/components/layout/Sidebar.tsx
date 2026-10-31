@@ -13,6 +13,7 @@ import {
   Building2,
   ChevronRight,
   ShieldCheck,
+  ShieldAlert,
   X,
 } from 'lucide-react';
 import { NavigationTab, NavItemConfig } from '../../types/navigation';
@@ -35,6 +36,7 @@ const TAB_ICONS: Record<NavigationTab, React.ComponentType<{ className?: string 
   invoices: FileText,
   payments: CreditCard,
   discounts: Percent,
+  leakage: ShieldAlert,
   analytics: BarChart3,
 };
 

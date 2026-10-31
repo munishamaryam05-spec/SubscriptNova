@@ -8,6 +8,7 @@ export type NavigationTab =
   | 'invoices'
   | 'payments'
   | 'discounts'
+  | 'leakage'
   | 'analytics';
 
 export interface NavItemConfig {

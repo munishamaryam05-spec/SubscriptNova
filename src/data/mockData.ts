@@ -66,6 +66,13 @@ export const NAVIGATION_ITEMS: NavItemConfig[] = [
     description: 'Coupon codes, volume discount rules, promotional grants, and credits.',
   },
   {
+    id: 'leakage',
+    label: 'Revenue Leakage',
+    category: 'insights',
+    badge: 'Alerts',
+    description: 'Detect billing leaks, unbilled subscriptions, failed charges, and overdue invoices.',
+  },
+  {
     id: 'analytics',
     label: 'Analytics',
     category: 'insights',

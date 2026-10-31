@@ -26,6 +26,10 @@ import { PlansView } from './components/plans/PlansView';
 import { QuotationsView } from './components/quotations/QuotationsView';
 import { SubscriptionsView } from './components/subscriptions/SubscriptionsView';
 import { InvoicesView } from './components/invoices/InvoicesView';
+import { PaymentsView } from './components/payments/PaymentsView';
+import { DiscountsView } from './components/discounts/DiscountsView';
+import { LeakageView } from './components/leakage/LeakageView';
+import { AnalyticsView } from './components/analytics/AnalyticsView';
 import { InvoiceDetailModal } from './components/modals/InvoiceDetailModal';
 import { CreateSubscriptionModal } from './components/modals/CreateSubscriptionModal';
 
@@ -163,6 +167,23 @@ export default function App() {
             <SubscriptionsView onShowToast={showToast} />
           ) : activeTab === 'invoices' ? (
             <InvoicesView onShowToast={showToast} />
+          ) : activeTab === 'payments' ? (
+            <PaymentsView
+              onShowToast={showToast}
+              onNavigateToInvoice={(invId) => {
+                setActiveTab('invoices');
+                showToast(`Navigated to invoice ${invId}`);
+              }}
+            />
+          ) : activeTab === 'discounts' ? (
+            <DiscountsView onShowToast={showToast} />
+          ) : activeTab === 'leakage' ? (
+            <LeakageView
+              onShowToast={showToast}
+              onNavigateToTab={(t) => setActiveTab(t as NavigationTab)}
+            />
+          ) : activeTab === 'analytics' ? (
+            <AnalyticsView onShowToast={showToast} />
           ) : (
             <ModulePlaceholder
               tab={activeTab}

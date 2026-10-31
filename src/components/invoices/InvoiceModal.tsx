@@ -10,11 +10,15 @@ import {
   DollarSign,
   Percent,
   CheckCircle2,
+  Tag,
 } from 'lucide-react';
 import { Invoice, InvoiceFormData, InvoiceLineItem, InvoiceDiscountType, InvoiceStatus } from '../../types/invoice';
 import { Customer } from '../../types/customer';
 import { SubscriptionRecord } from '../../types/subscription';
 import { addDays, calculateBillingPeriod } from '../../utils/dateCalculations';
+import { INITIAL_DISCOUNTS } from '../../data/mockDiscounts';
+import { DiscountCode } from '../../types/discount';
+import { validateDiscount } from '../../utils/discountValidator';
 
 interface InvoiceModalProps {
   isOpen: boolean;
@@ -81,6 +85,36 @@ export const InvoiceModal: React.FC<InvoiceModalProps> = ({
   const [status, setStatus] = useState<InvoiceStatus>(existingInvoice?.status || 'draft');
 
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [couponCode, setCouponCode] = useState('');
+  const [couponFeedback, setCouponFeedback] = useState<{
+    valid: boolean;
+    message: string;
+  } | null>(null);
+
+  const handleApplyCoupon = () => {
+    let discounts: DiscountCode[] = INITIAL_DISCOUNTS;
+    try {
+      const stored = localStorage.getItem('subscriptnova_discounts');
+      if (stored) discounts = JSON.parse(stored);
+    } catch (e) {
+      console.error(e);
+    }
+
+    const res = validateDiscount(couponCode, subtotal, discounts);
+    if (res.isValid && res.discount) {
+      setDiscountType(res.discount.type);
+      setDiscountValue(res.discount.value);
+      setCouponFeedback({
+        valid: true,
+        message: `Applied ${res.discount.code} (${res.discount.type === 'percentage' ? `${res.discount.value}%` : `$${res.discount.value.toFixed(2)}`} off)`,
+      });
+    } else {
+      setCouponFeedback({
+        valid: false,
+        message: res.error || 'Invalid discount code.',
+      });
+    }
+  };
 
   // Filter subscriptions for selected customer
   const availableSubscriptions = subscriptions.filter(
@@ -511,7 +545,7 @@ export const InvoiceModal: React.FC<InvoiceModalProps> = ({
                 <label className="block font-semibold text-slate-700 mb-1">
                   Promotional Discount
                 </label>
-                <div className="flex gap-2">
+                <div className="flex gap-2 mb-2">
                   <select
                     value={discountType}
                     onChange={(e) => setDiscountType(e.target.value as InvoiceDiscountType)}
@@ -531,6 +565,41 @@ export const InvoiceModal: React.FC<InvoiceModalProps> = ({
                     className="flex-1 px-3 py-1.5 bg-white border border-slate-300 rounded-lg text-slate-800 font-mono text-xs focus:outline-none"
                   />
                 </div>
+
+                {/* Coupon Code Quick Validation */}
+                <div className="flex gap-1.5">
+                  <div className="relative flex-1">
+                    <Tag className="w-3.5 h-3.5 absolute left-2 top-1/2 -translate-y-1/2 text-slate-400" />
+                    <input
+                      type="text"
+                      value={couponCode}
+                      onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
+                      placeholder="Coupon (e.g. WELCOME20)"
+                      className="w-full pl-7 pr-2 py-1.5 text-xs font-mono font-bold uppercase rounded-lg border border-slate-200 focus:outline-none focus:border-[#1D8B94]"
+                    />
+                  </div>
+                  <button
+                    type="button"
+                    onClick={handleApplyCoupon}
+                    className="px-2.5 py-1.5 text-xs font-semibold text-white bg-[#1D8B94] hover:bg-[#10606F] rounded-lg transition-colors cursor-pointer"
+                  >
+                    Apply
+                  </button>
+                </div>
+                {couponFeedback && (
+                  <div
+                    className={`mt-1.5 text-[11px] font-medium flex items-center gap-1 ${
+                      couponFeedback.valid ? 'text-[#1D8B94]' : 'text-red-500'
+                    }`}
+                  >
+                    {couponFeedback.valid ? (
+                      <CheckCircle2 className="w-3 h-3 shrink-0" />
+                    ) : (
+                      <AlertCircle className="w-3 h-3 shrink-0" />
+                    )}
+                    <span>{couponFeedback.message}</span>
+                  </div>
+                )}
               </div>
 
               <div>

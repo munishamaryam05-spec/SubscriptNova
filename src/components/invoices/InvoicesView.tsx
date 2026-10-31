@@ -20,6 +20,7 @@ import {
   Building,
   Calendar,
   Sparkles,
+  CreditCard,
 } from 'lucide-react';
 import {
   Invoice,
@@ -30,6 +31,7 @@ import {
 } from '../../types/invoice';
 import { Customer } from '../../types/customer';
 import { SubscriptionRecord } from '../../types/subscription';
+import { PaymentFormData } from '../../types/payment';
 import { INITIAL_INVOICES } from '../../data/mockInvoices';
 import { INITIAL_CUSTOMERS } from '../../data/mockCustomers';
 import { INITIAL_SUBSCRIPTIONS } from '../../data/mockSubscriptions';
@@ -37,6 +39,7 @@ import { InvoiceDetailModal } from './InvoiceDetailModal';
 import { InvoiceModal } from './InvoiceModal';
 import { BillingCycleModal } from './BillingCycleModal';
 import { CancelInvoiceDialog } from './CancelInvoiceDialog';
+import { PaymentModal } from '../payments/PaymentModal';
 import { formatDateDisplay, formatPeriodRange } from '../../utils/dateCalculations';
 
 interface InvoicesViewProps {
@@ -108,6 +111,46 @@ export const InvoicesView: React.FC<InvoicesViewProps> = ({ onShowToast }) => {
   const [editingInvoice, setEditingInvoice] = useState<Invoice | null>(null);
   const [isBillingCycleOpen, setIsBillingCycleOpen] = useState(false);
   const [cancelingInvoice, setCancelingInvoice] = useState<Invoice | null>(null);
+  const [payingInvoiceTarget, setPayingInvoiceTarget] = useState<string | null>(null);
+
+  const handleRecordInvoicePayment = (formData: PaymentFormData) => {
+    const nextTxnNum = `TXN-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+    const newPayment = {
+      id: `pay-${Date.now()}`,
+      transactionId: nextTxnNum,
+      ...formData,
+      createdAt: new Date().toISOString(),
+    };
+
+    try {
+      const storedPayments = localStorage.getItem('subscriptnova_payments');
+      const existingPayments = storedPayments ? JSON.parse(storedPayments) : [];
+      localStorage.setItem('subscriptnova_payments', JSON.stringify([newPayment, ...existingPayments]));
+    } catch (e) {
+      console.error(e);
+    }
+
+    if (formData.status === 'successful') {
+      const updated = invoices.map((inv) => {
+        if (inv.id === formData.invoiceId) {
+          const newPaidAmount = inv.paidAmount + formData.amount;
+          const newBalance = Math.max(0, inv.totalAmount - newPaidAmount);
+          const isFullyPaid = newBalance === 0;
+          return {
+            ...inv,
+            paidAmount: newPaidAmount,
+            balance: newBalance,
+            status: isFullyPaid ? ('paid' as const) : inv.status,
+            paidAt: isFullyPaid ? formData.paymentDate : inv.paidAt,
+          };
+        }
+        return inv;
+      });
+      setInvoices(updated);
+    }
+    setPayingInvoiceTarget(null);
+    onShowToast(`Payment of $${formData.amount.toFixed(2)} recorded for ${formData.invoiceNumber}.`);
+  };
 
   // Helper to determine computed display status
   const getComputedStatus = (inv: Invoice): InvoiceDisplayStatus => {
@@ -822,6 +865,16 @@ export const InvoicesView: React.FC<InvoicesViewProps> = ({ onShowToast }) => {
                           </>
                         )}
 
+                        {inv.balance > 0 && inv.status !== 'cancelled' && (
+                          <button
+                            onClick={() => setPayingInvoiceTarget(inv.id)}
+                            className="p-1 text-slate-400 hover:text-[#1D8B94] hover:bg-[#E2F4F0] rounded cursor-pointer"
+                            title="Record Payment"
+                          >
+                            <CreditCard className="w-3.5 h-3.5" />
+                          </button>
+                        )}
+
                         <button
                           onClick={() => {
                             setSelectedInvoice(inv);
@@ -870,6 +923,7 @@ export const InvoicesView: React.FC<InvoicesViewProps> = ({ onShowToast }) => {
           const inv = invoices.find((i) => i.id === id);
           if (inv) setCancelingInvoice(inv);
         }}
+        onRecordPayment={(inv) => setPayingInvoiceTarget(inv.id)}
       />
 
       {/* Manual / Edit Invoice Modal */}
@@ -902,6 +956,15 @@ export const InvoicesView: React.FC<InvoicesViewProps> = ({ onShowToast }) => {
         invoice={cancelingInvoice}
         onClose={() => setCancelingInvoice(null)}
         onConfirmCancel={handleCancelInvoice}
+      />
+
+      {/* Record Payment Modal */}
+      <PaymentModal
+        isOpen={Boolean(payingInvoiceTarget)}
+        onClose={() => setPayingInvoiceTarget(null)}
+        onSave={handleRecordInvoicePayment}
+        invoices={invoices}
+        initialInvoiceId={payingInvoiceTarget || undefined}
       />
     </div>
   );

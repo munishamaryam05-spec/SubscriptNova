@@ -15,6 +15,7 @@ import {
   ArrowRight,
   ShieldCheck,
   Receipt,
+  CreditCard,
 } from 'lucide-react';
 import { Invoice, InvoiceDisplayStatus } from '../../types/invoice';
 import { formatDateDisplay, formatPeriodRange } from '../../utils/dateCalculations';
@@ -25,6 +26,7 @@ interface InvoiceDetailModalProps {
   onConfirmInvoice?: (invoiceId: string) => void;
   onEditInvoice?: (invoice: Invoice) => void;
   onCancelInvoice?: (invoiceId: string) => void;
+  onRecordPayment?: (invoice: Invoice) => void;
 }
 
 export const InvoiceDetailModal: React.FC<InvoiceDetailModalProps> = ({
@@ -33,6 +35,7 @@ export const InvoiceDetailModal: React.FC<InvoiceDetailModalProps> = ({
   onConfirmInvoice,
   onEditInvoice,
   onCancelInvoice,
+  onRecordPayment,
 }) => {
   if (!invoice) return null;
 
@@ -161,6 +164,19 @@ export const InvoiceDetailModal: React.FC<InvoiceDetailModalProps> = ({
               >
                 <Ban className="w-3.5 h-3.5" />
                 <span>Cancel</span>
+              </button>
+            )}
+
+            {invoice.balance > 0 && invoice.status !== 'cancelled' && onRecordPayment && (
+              <button
+                onClick={() => {
+                  onClose();
+                  onRecordPayment(invoice);
+                }}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-[#1D8B94] hover:bg-[#10606F] rounded-lg shadow-xs transition-colors cursor-pointer"
+              >
+                <CreditCard className="w-3.5 h-3.5" />
+                <span>Record Payment</span>
               </button>
             )}
 
