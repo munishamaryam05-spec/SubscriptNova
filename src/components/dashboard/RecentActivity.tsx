@@ -18,9 +18,9 @@ const EVENT_ICONS: Record<
   ActivityEvent['type'],
   { icon: React.ComponentType<{ className?: string }>; color: string }
 > = {
-  upgrade: { icon: TrendingUp, color: 'text-[#10B981] bg-[#10B981]/10' },
-  new_sub: { icon: PlusCircle, color: 'text-[#102B4E] bg-[#102B4E]/10' },
-  renewal: { icon: RefreshCw, color: 'text-blue-600 bg-blue-50' },
+  upgrade: { icon: TrendingUp, color: 'text-[#1D8B94] bg-[#E2F4F0]' },
+  new_sub: { icon: PlusCircle, color: 'text-[#0A3D4A] bg-[#0A3D4A]/10' },
+  renewal: { icon: RefreshCw, color: 'text-[#10606F] bg-[#E2F4F0]/60' },
   churn: { icon: AlertOctagon, color: 'text-[#EF4444] bg-[#EF4444]/10' },
   payment_failed: { icon: AlertOctagon, color: 'text-[#F59E0B] bg-[#F59E0B]/10' },
 };
@@ -31,10 +31,10 @@ export const RecentActivity: React.FC<RecentActivityProps> = ({ onViewAll }) => 
       <div>
         <div className="flex items-center justify-between pb-3 border-b border-slate-100">
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-md bg-[#102B4E]/10 flex items-center justify-center text-[#102B4E]">
+            <div className="w-6 h-6 rounded-md bg-[#0A3D4A]/10 flex items-center justify-center text-[#0A3D4A]">
               <Clock className="w-3.5 h-3.5" />
             </div>
-            <h3 className="text-sm font-bold text-[#102B4E]">Lifecycle Activity Pulse</h3>
+            <h3 className="text-sm font-bold text-[#04222B]">Lifecycle Activity Pulse</h3>
           </div>
           <span className="text-xs font-mono text-slate-400">Live events</span>
         </div>
@@ -57,7 +57,7 @@ export const RecentActivity: React.FC<RecentActivityProps> = ({ onViewAll }) => 
                   <div className="flex items-center justify-between gap-2">
                     <span className="font-semibold text-slate-800 truncate">{event.title}</span>
                     {event.amount && (
-                      <span className="font-mono font-semibold text-[#102B4E] tabular-nums shrink-0">
+                      <span className="font-mono font-semibold text-[#04222B] tabular-nums shrink-0">
                         {event.amount}
                       </span>
                     )}
@@ -80,7 +80,7 @@ export const RecentActivity: React.FC<RecentActivityProps> = ({ onViewAll }) => 
       <div className="mt-4 pt-3 border-t border-slate-100">
         <button
           onClick={onViewAll}
-          className="w-full flex items-center justify-center gap-1.5 py-1.5 text-xs font-semibold text-[#102B4E] hover:bg-slate-50 rounded-lg transition-colors cursor-pointer"
+          className="w-full flex items-center justify-center gap-1.5 py-1.5 text-xs font-semibold text-[#1D8B94] hover:bg-[#E2F4F0]/60 rounded-lg transition-colors cursor-pointer"
         >
           <span>View All Lifecycle Events</span>
           <ArrowRight className="w-3.5 h-3.5" />

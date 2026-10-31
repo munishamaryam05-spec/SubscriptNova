@@ -41,7 +41,7 @@ export const DeleteProductDialog: React.FC<DeleteProductDialogProps> = ({
                 <p className="text-xs text-slate-600 mt-1.5 leading-relaxed">
                   <span className="font-semibold text-slate-800">{product.name}</span> cannot be
                   deleted because it is actively linked to{' '}
-                  <span className="font-bold text-[#102B4E]">
+                  <span className="font-bold text-[#04222B]">
                     {product.linkedSubscriptionsCount} active customer subscription(s)
                   </span>
                   .
@@ -88,7 +88,7 @@ export const DeleteProductDialog: React.FC<DeleteProductDialogProps> = ({
                   onMarkInactive(product.id);
                   onClose();
                 }}
-                className="px-3.5 py-1.5 text-xs font-semibold text-white bg-[#102B4E] hover:bg-[#183B6B] rounded-lg transition-colors shadow-xs cursor-pointer"
+                className="px-3.5 py-1.5 text-xs font-semibold text-white bg-[#1D8B94] hover:bg-[#10606F] rounded-lg transition-colors shadow-xs cursor-pointer"
               >
                 Set Product to Inactive
               </button>

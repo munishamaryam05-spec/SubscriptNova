@@ -444,7 +444,7 @@ export const InvoicesView: React.FC<InvoicesViewProps> = ({ onShowToast }) => {
     switch (status) {
       case 'paid':
         return (
-          <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#10B981]">
+          <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#1D8B94]">
             <CheckCircle2 className="w-3.5 h-3.5" />
             <span>Paid</span>
           </span>
@@ -465,7 +465,7 @@ export const InvoicesView: React.FC<InvoicesViewProps> = ({ onShowToast }) => {
         );
       case 'confirmed':
         return (
-          <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-blue-600">
+          <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#10606F]">
             <CheckCircle2 className="w-3.5 h-3.5" />
             <span>Confirmed</span>
           </span>
@@ -493,11 +493,11 @@ export const InvoicesView: React.FC<InvoicesViewProps> = ({ onShowToast }) => {
       {/* Module Header Banner */}
       <div className="bg-white rounded-2xl border border-slate-200/80 p-5 sm:p-6 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2 text-xs font-semibold text-[#10B981]">
-            <span className="w-2 h-2 rounded-full bg-[#10B981]" />
+          <div className="flex items-center gap-2 text-xs font-semibold text-[#1D8B94]">
+            <span className="w-2 h-2 rounded-full bg-[#1D8B94]" />
             <span>Revenue Invoicing Engine</span>
           </div>
-          <h1 className="text-xl sm:text-2xl font-bold text-[#102B4E] mt-1 tracking-tight">
+          <h1 className="text-xl sm:text-2xl font-bold text-[#04222B] mt-1 tracking-tight">
             Invoices & Automated Billing
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-2xl">
@@ -510,9 +510,9 @@ export const InvoicesView: React.FC<InvoicesViewProps> = ({ onShowToast }) => {
         <div className="flex items-center gap-2.5 shrink-0 flex-wrap">
           <button
             onClick={() => setIsBillingCycleOpen(true)}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-white bg-[#10B981] hover:bg-[#0ea372] rounded-lg shadow-xs transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-white bg-[#1D8B94] hover:bg-[#10606F] rounded-lg shadow-xs transition-colors cursor-pointer"
           >
-            <RotateCw className="w-3.5 h-3.5" />
+            <RotateCw className="w-3.5 h-3.5 text-[#E2F4F0]" />
             <span>Run Billing Cycle</span>
           </button>
 
@@ -521,15 +521,15 @@ export const InvoicesView: React.FC<InvoicesViewProps> = ({ onShowToast }) => {
               setEditingInvoice(null);
               setIsInvoiceModalOpen(true);
             }}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-white bg-[#102B4E] hover:bg-[#183B6B] rounded-lg shadow-xs transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-white bg-[#0A3D4A] hover:bg-[#04222B] rounded-lg shadow-xs transition-colors cursor-pointer"
           >
-            <Plus className="w-3.5 h-3.5 text-[#10B981]" />
+            <Plus className="w-3.5 h-3.5 text-[#4FB8B4]" />
             <span>Create Invoice</span>
           </button>
 
           <button
             onClick={handleExportCSV}
-            className="p-2 text-slate-500 hover:text-slate-800 hover:bg-slate-100 border border-slate-200 rounded-lg transition-colors cursor-pointer"
+            className="p-2 text-slate-500 hover:text-[#04222B] hover:bg-[#E2F4F0]/60 border border-slate-200 rounded-lg transition-colors cursor-pointer"
             title="Export filtered invoices to CSV"
           >
             <Download className="w-4 h-4" />
@@ -545,7 +545,7 @@ export const InvoicesView: React.FC<InvoicesViewProps> = ({ onShowToast }) => {
             <span>Total Invoices</span>
             <FileText className="w-4 h-4 text-slate-400" />
           </div>
-          <div className="text-xl sm:text-2xl font-bold text-[#102B4E] mt-2 font-mono">
+          <div className="text-xl sm:text-2xl font-bold text-[#04222B] mt-2 font-mono">
             {metrics.totalInvoices}
           </div>
           <div className="text-[11px] text-slate-400 mt-1 font-mono">
@@ -557,21 +557,21 @@ export const InvoicesView: React.FC<InvoicesViewProps> = ({ onShowToast }) => {
         <div className="bg-white p-4 rounded-xl border border-slate-200/80 shadow-xs">
           <div className="flex items-center justify-between text-xs text-slate-500 font-medium">
             <span>Confirmed</span>
-            <CheckCircle2 className="w-4 h-4 text-blue-500" />
+            <CheckCircle2 className="w-4 h-4 text-[#10606F]" />
           </div>
-          <div className="text-xl sm:text-2xl font-bold text-[#102B4E] mt-2 font-mono">
+          <div className="text-xl sm:text-2xl font-bold text-[#04222B] mt-2 font-mono">
             {metrics.confirmedCount}
           </div>
-          <div className="text-[11px] text-blue-600 mt-1 font-medium">Ready for collection</div>
+          <div className="text-[11px] text-[#10606F] mt-1 font-medium">Ready for collection</div>
         </div>
 
         {/* Paid Invoices */}
         <div className="bg-white p-4 rounded-xl border border-slate-200/80 shadow-xs">
           <div className="flex items-center justify-between text-xs text-slate-500 font-medium">
             <span>Paid Invoices</span>
-            <CheckCircle2 className="w-4 h-4 text-[#10B981]" />
+            <CheckCircle2 className="w-4 h-4 text-[#1D8B94]" />
           </div>
-          <div className="text-xl sm:text-2xl font-bold text-[#10B981] mt-2 font-mono">
+          <div className="text-xl sm:text-2xl font-bold text-[#1D8B94] mt-2 font-mono">
             {metrics.paidCount}
           </div>
           <div className="text-[11px] text-slate-400 mt-1 font-mono">
@@ -599,7 +599,7 @@ export const InvoicesView: React.FC<InvoicesViewProps> = ({ onShowToast }) => {
             <span>Outstanding Balance</span>
             <Clock className="w-4 h-4 text-[#F59E0B]" />
           </div>
-          <div className="text-xl sm:text-2xl font-bold text-[#102B4E] mt-2 font-mono">
+          <div className="text-xl sm:text-2xl font-bold text-[#04222B] mt-2 font-mono">
             ${metrics.outstandingAmount.toLocaleString('en-US', { minimumFractionDigits: 0 })}
           </div>
           <div className="text-[11px] text-amber-600 mt-1 font-medium">Active pending receivables</div>
@@ -618,7 +618,7 @@ export const InvoicesView: React.FC<InvoicesViewProps> = ({ onShowToast }) => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by invoice #, customer, plan, or email..."
-              className="w-full pl-9 pr-3 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#102B4E]"
+              className="w-full pl-9 pr-3 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#1D8B94]"
             />
           </div>
 
@@ -632,7 +632,7 @@ export const InvoicesView: React.FC<InvoicesViewProps> = ({ onShowToast }) => {
                   onClick={() => setStatusFilter(st)}
                   className={`px-2.5 py-1 rounded-md text-[11px] font-medium capitalize transition-all cursor-pointer ${
                     statusFilter === st
-                      ? 'bg-white text-[#102B4E] shadow-xs font-semibold'
+                      ? 'bg-white text-[#04222B] shadow-xs font-semibold'
                       : 'text-slate-500 hover:text-slate-800'
                   }`}
                 >
@@ -716,7 +716,7 @@ export const InvoicesView: React.FC<InvoicesViewProps> = ({ onShowToast }) => {
                     onClick={() => setSelectedInvoice(inv)}
                     className="hover:bg-slate-50/80 transition-colors group cursor-pointer"
                   >
-                    <td className="py-3 px-3 font-mono font-bold text-[#102B4E] whitespace-nowrap">
+                    <td className="py-3 px-3 font-mono font-bold text-[#04222B] whitespace-nowrap">
                       {inv.invoiceNumber}
                     </td>
 
@@ -732,7 +732,7 @@ export const InvoicesView: React.FC<InvoicesViewProps> = ({ onShowToast }) => {
                     <td className="py-3 px-3 whitespace-nowrap">
                       {inv.subscriptionNumber ? (
                         <div>
-                          <div className="font-mono text-[#102B4E] font-medium text-[11px]">
+                          <div className="font-mono text-[#10606F] font-medium text-[11px]">
                             {inv.subscriptionNumber}
                           </div>
                           <div className="text-[10px] text-slate-400">
@@ -764,11 +764,11 @@ export const InvoicesView: React.FC<InvoicesViewProps> = ({ onShowToast }) => {
                       ${inv.taxAmount.toFixed(2)}
                     </td>
 
-                    <td className="py-3 px-3 text-right font-mono font-bold text-[#102B4E] tabular-nums whitespace-nowrap">
+                    <td className="py-3 px-3 text-right font-mono font-bold text-[#04222B] tabular-nums whitespace-nowrap">
                       ${inv.totalAmount.toFixed(2)}
                     </td>
 
-                    <td className="py-3 px-3 text-right font-mono text-[#10B981] whitespace-nowrap">
+                    <td className="py-3 px-3 text-right font-mono text-[#1D8B94] font-medium whitespace-nowrap">
                       ${inv.paidAmount.toFixed(2)}
                     </td>
 
@@ -787,7 +787,7 @@ export const InvoicesView: React.FC<InvoicesViewProps> = ({ onShowToast }) => {
                       >
                         <button
                           onClick={() => setSelectedInvoice(inv)}
-                          className="p-1 text-slate-400 hover:text-[#102B4E] hover:bg-slate-100 rounded cursor-pointer"
+                          className="p-1 text-slate-400 hover:text-[#1D8B94] hover:bg-[#E2F4F0]/60 rounded cursor-pointer"
                           title="View Invoice Details"
                         >
                           <Eye className="w-3.5 h-3.5" />
@@ -800,14 +800,14 @@ export const InvoicesView: React.FC<InvoicesViewProps> = ({ onShowToast }) => {
                                 setEditingInvoice(inv);
                                 setIsInvoiceModalOpen(true);
                               }}
-                              className="p-1 text-slate-400 hover:text-[#102B4E] hover:bg-slate-100 rounded cursor-pointer"
+                              className="p-1 text-slate-400 hover:text-[#04222B] hover:bg-slate-100 rounded cursor-pointer"
                               title="Edit Draft"
                             >
                               <Pencil className="w-3.5 h-3.5" />
                             </button>
                             <button
                               onClick={() => handleConfirmInvoice(inv.id)}
-                              className="p-1 text-slate-400 hover:text-[#10B981] hover:bg-emerald-50 rounded cursor-pointer"
+                              className="p-1 text-slate-400 hover:text-[#1D8B94] hover:bg-[#E2F4F0] rounded cursor-pointer"
                               title="Confirm Invoice"
                             >
                               <FileCheck2 className="w-3.5 h-3.5" />
@@ -827,13 +827,13 @@ export const InvoicesView: React.FC<InvoicesViewProps> = ({ onShowToast }) => {
                             setSelectedInvoice(inv);
                             setTimeout(() => window.print(), 100);
                           }}
-                          className="p-1 text-slate-400 hover:text-[#102B4E] hover:bg-slate-100 rounded cursor-pointer"
+                          className="p-1 text-slate-400 hover:text-[#04222B] hover:bg-slate-100 rounded cursor-pointer"
                           title="Print Invoice"
                         >
                           <Printer className="w-3.5 h-3.5" />
                         </button>
                       </div>
-                    </td>
+                    </td> 
                   </tr>
                 ))
               )}
@@ -849,7 +849,7 @@ export const InvoicesView: React.FC<InvoicesViewProps> = ({ onShowToast }) => {
           <div className="flex items-center gap-4 text-[11px]">
             <span>
               Outstanding Receivables:{' '}
-              <strong className="text-[#102B4E] font-mono">
+              <strong className="text-[#04222B] font-mono">
                 ${metrics.outstandingAmount.toFixed(2)}
               </strong>
             </span>

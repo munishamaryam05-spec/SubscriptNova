@@ -279,11 +279,11 @@ export const InvoiceModal: React.FC<InvoiceModalProps> = ({
         {/* Header */}
         <div className="p-4 sm:px-6 bg-slate-50/90 border-b border-slate-200 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-[#102B4E] text-white flex items-center justify-center">
-              <FileText className="w-4 h-4 text-[#10B981]" />
+            <div className="w-8 h-8 rounded-lg bg-[#04222B] text-white border border-[#0A3D4A] flex items-center justify-center">
+              <FileText className="w-4 h-4 text-[#4FB8B4]" />
             </div>
             <div>
-              <h3 className="text-base font-bold text-[#102B4E]">
+              <h3 className="text-base font-bold text-[#04222B]">
                 {isEditing ? `Edit Draft Invoice (${existingInvoice?.invoiceNumber})` : 'Create Manual Invoice'}
               </h3>
               <p className="text-xs text-slate-500">
@@ -320,7 +320,7 @@ export const InvoiceModal: React.FC<InvoiceModalProps> = ({
               <select
                 value={customerId}
                 onChange={(e) => handleCustomerChange(e.target.value)}
-                className={`w-full px-3 py-2 bg-slate-50 border rounded-lg text-slate-800 focus:outline-none focus:ring-1 focus:ring-[#102B4E] ${
+                className={`w-full px-3 py-2 bg-slate-50 border rounded-lg text-slate-800 focus:outline-none focus:ring-1 focus:ring-[#1D8B94] ${
                   errors.customerId ? 'border-red-500 bg-red-50/40' : 'border-slate-300'
                 }`}
               >
@@ -344,7 +344,7 @@ export const InvoiceModal: React.FC<InvoiceModalProps> = ({
                 value={subscriptionId}
                 onChange={(e) => handleSubscriptionChange(e.target.value)}
                 disabled={!customerId}
-                className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-slate-800 focus:outline-none focus:ring-1 focus:ring-[#102B4E] disabled:opacity-50"
+                className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-slate-800 focus:outline-none focus:ring-1 focus:ring-[#1D8B94] disabled:opacity-50"
               >
                 <option value="">-- One-Off / No Subscription --</option>
                 {availableSubscriptions.map((s) => (
@@ -369,7 +369,7 @@ export const InvoiceModal: React.FC<InvoiceModalProps> = ({
                 type="date"
                 value={issueDate}
                 onChange={(e) => setIssueDate(e.target.value)}
-                className="w-full px-2.5 py-1.5 bg-white border border-slate-300 rounded-lg text-slate-800 font-mono text-xs focus:outline-none focus:ring-1 focus:ring-[#102B4E]"
+                className="w-full px-2.5 py-1.5 bg-white border border-slate-300 rounded-lg text-slate-800 font-mono text-xs focus:outline-none focus:ring-1 focus:ring-[#1D8B94]"
               />
               {errors.issueDate && (
                 <p className="text-[10px] text-red-600 mt-1">{errors.issueDate}</p>
@@ -384,7 +384,7 @@ export const InvoiceModal: React.FC<InvoiceModalProps> = ({
                 type="date"
                 value={dueDate}
                 onChange={(e) => setDueDate(e.target.value)}
-                className="w-full px-2.5 py-1.5 bg-white border border-slate-300 rounded-lg text-slate-800 font-mono text-xs focus:outline-none focus:ring-1 focus:ring-[#102B4E]"
+                className="w-full px-2.5 py-1.5 bg-white border border-slate-300 rounded-lg text-slate-800 font-mono text-xs focus:outline-none focus:ring-1 focus:ring-[#1D8B94]"
               />
               {errors.dueDate && <p className="text-[10px] text-red-600 mt-1">{errors.dueDate}</p>}
             </div>
@@ -397,7 +397,7 @@ export const InvoiceModal: React.FC<InvoiceModalProps> = ({
                 type="date"
                 value={billingPeriodStart}
                 onChange={(e) => setBillingPeriodStart(e.target.value)}
-                className="w-full px-2.5 py-1.5 bg-white border border-slate-300 rounded-lg text-slate-800 font-mono text-xs focus:outline-none focus:ring-1 focus:ring-[#102B4E]"
+                className="w-full px-2.5 py-1.5 bg-white border border-slate-300 rounded-lg text-slate-800 font-mono text-xs focus:outline-none focus:ring-1 focus:ring-[#1D8B94]"
               />
               {errors.billingPeriodStart && (
                 <p className="text-[10px] text-red-600 mt-1">{errors.billingPeriodStart}</p>
@@ -412,7 +412,7 @@ export const InvoiceModal: React.FC<InvoiceModalProps> = ({
                 type="date"
                 value={billingPeriodEnd}
                 onChange={(e) => setBillingPeriodEnd(e.target.value)}
-                className="w-full px-2.5 py-1.5 bg-white border border-slate-300 rounded-lg text-slate-800 font-mono text-xs focus:outline-none focus:ring-1 focus:ring-[#102B4E]"
+                className="w-full px-2.5 py-1.5 bg-white border border-slate-300 rounded-lg text-slate-800 font-mono text-xs focus:outline-none focus:ring-1 focus:ring-[#1D8B94]"
               />
               {errors.billingPeriodEnd && (
                 <p className="text-[10px] text-red-600 mt-1">{errors.billingPeriodEnd}</p>
@@ -429,9 +429,9 @@ export const InvoiceModal: React.FC<InvoiceModalProps> = ({
               <button
                 type="button"
                 onClick={handleAddItem}
-                className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold text-[#102B4E] hover:bg-[#102B4E]/10 rounded-md transition-colors cursor-pointer"
+                className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold text-[#1D8B94] hover:bg-[#E2F4F0]/60 rounded-md transition-colors cursor-pointer"
               >
-                <Plus className="w-3.5 h-3.5 text-[#10B981]" />
+                <Plus className="w-3.5 h-3.5 text-[#1D8B94]" />
                 <span>Add Item</span>
               </button>
             </div>
@@ -456,7 +456,7 @@ export const InvoiceModal: React.FC<InvoiceModalProps> = ({
                           value={item.description}
                           onChange={(e) => handleItemChange(idx, 'description', e.target.value)}
                           placeholder="e.g. Standard SaaS Tier Monthly License"
-                          className="w-full px-2.5 py-1.5 bg-white border border-slate-200 rounded-lg text-slate-800 focus:outline-none focus:ring-1 focus:ring-[#102B4E]"
+                          className="w-full px-2.5 py-1.5 bg-white border border-slate-200 rounded-lg text-slate-800 focus:outline-none focus:ring-1 focus:ring-[#1D8B94]"
                         />
                       </td>
                       <td className="p-2">
@@ -466,7 +466,7 @@ export const InvoiceModal: React.FC<InvoiceModalProps> = ({
                           step="1"
                           value={item.quantity}
                           onChange={(e) => handleItemChange(idx, 'quantity', e.target.value)}
-                          className="w-full px-2 py-1.5 bg-white border border-slate-200 rounded-lg text-slate-800 font-mono text-center focus:outline-none focus:ring-1 focus:ring-[#102B4E]"
+                          className="w-full px-2 py-1.5 bg-white border border-slate-200 rounded-lg text-slate-800 font-mono text-center focus:outline-none focus:ring-1 focus:ring-[#1D8B94]"
                         />
                       </td>
                       <td className="p-2">
@@ -480,11 +480,11 @@ export const InvoiceModal: React.FC<InvoiceModalProps> = ({
                             step="0.01"
                             value={item.unitPrice}
                             onChange={(e) => handleItemChange(idx, 'unitPrice', e.target.value)}
-                            className="w-full pl-5 pr-2 py-1.5 bg-white border border-slate-200 rounded-lg text-slate-800 font-mono text-right focus:outline-none focus:ring-1 focus:ring-[#102B4E]"
+                            className="w-full pl-5 pr-2 py-1.5 bg-white border border-slate-200 rounded-lg text-slate-800 font-mono text-right focus:outline-none focus:ring-1 focus:ring-[#1D8B94]"
                           />
                         </div>
                       </td>
-                      <td className="p-2 text-right font-mono font-semibold text-[#102B4E] whitespace-nowrap">
+                      <td className="p-2 text-right font-mono font-semibold text-[#04222B] whitespace-nowrap">
                         ${item.amount.toFixed(2)}
                       </td>
                       <td className="p-2 text-center">
@@ -572,7 +572,7 @@ export const InvoiceModal: React.FC<InvoiceModalProps> = ({
                 <span className="font-semibold">${subtotal.toFixed(2)}</span>
               </div>
               {discountAmount > 0 && (
-                <div className="flex justify-between text-[#10B981]">
+                <div className="flex justify-between text-[#1D8B94]">
                   <span>
                     Discount{' '}
                     {discountType === 'percentage' ? `(${discountValue}%)` : '($)'}:
@@ -584,7 +584,7 @@ export const InvoiceModal: React.FC<InvoiceModalProps> = ({
                 <span>Tax ({taxRate}%):</span>
                 <span>${taxAmount.toFixed(2)}</span>
               </div>
-              <div className="pt-2 border-t border-slate-200 flex justify-between text-base font-bold text-[#102B4E]">
+              <div className="pt-2 border-t border-slate-200 flex justify-between text-base font-bold text-[#04222B]">
                 <span>Total Amount:</span>
                 <span>${totalAmount.toFixed(2)}</span>
               </div>
@@ -616,7 +616,7 @@ export const InvoiceModal: React.FC<InvoiceModalProps> = ({
             <button
               type="button"
               onClick={() => handleSubmit('confirmed')}
-              className="px-4 py-2 text-xs font-semibold text-white bg-[#102B4E] hover:bg-[#183B6B] rounded-lg shadow-xs transition-colors cursor-pointer"
+              className="px-4 py-2 text-xs font-semibold text-white bg-[#1D8B94] hover:bg-[#10606F] rounded-lg shadow-xs transition-colors cursor-pointer"
             >
               Save & Confirm
             </button>

@@ -48,7 +48,7 @@ export const CustomerProfileModal: React.FC<CustomerProfileModalProps> = ({
         {/* Header Strip */}
         <div className="p-5 border-b border-slate-200 bg-slate-50/70 flex items-start justify-between gap-4">
           <div className="flex items-start gap-3.5">
-            <div className="w-11 h-11 rounded-xl bg-[#102B4E] text-[#10B981] flex items-center justify-center text-sm font-bold shadow-xs">
+            <div className="w-11 h-11 rounded-xl bg-[#04222B] text-[#4FB8B4] flex items-center justify-center text-sm font-bold shadow-xs">
               {customer.name
                 .split(' ')
                 .map((n) => n[0])
@@ -57,13 +57,13 @@ export const CustomerProfileModal: React.FC<CustomerProfileModalProps> = ({
             </div>
             <div>
               <div className="flex items-center gap-2 flex-wrap">
-                <h2 className="text-base sm:text-lg font-bold text-[#102B4E] tracking-tight">
+                <h2 className="text-base sm:text-lg font-bold text-[#04222B] tracking-tight">
                   {customer.company}
                 </h2>
                 <span
                   className={`text-[10px] font-mono px-2 py-0.5 rounded font-semibold ${
                     customer.status === 'active'
-                      ? 'bg-emerald-50 text-[#10B981] border border-emerald-200/60'
+                      ? 'bg-[#E2F4F0] text-[#0A3D4A] border border-[#98D8D0]'
                       : 'bg-slate-100 text-slate-500 border border-slate-200'
                   }`}
                 >
@@ -102,17 +102,17 @@ export const CustomerProfileModal: React.FC<CustomerProfileModalProps> = ({
             <div className="text-[10px] uppercase font-semibold text-slate-400 tracking-wider">
               Total Revenue / Paid
             </div>
-            <div className="text-base sm:text-lg font-bold font-mono text-[#102B4E] tabular-nums mt-0.5">
+            <div className="text-base sm:text-lg font-bold font-mono text-[#04222B] tabular-nums mt-0.5">
               ${(totalPaid || customer.totalRevenue).toLocaleString(undefined, { minimumFractionDigits: 2 })}
             </div>
-            <div className="text-[10px] text-[#10B981] font-medium mt-0.5">Lifetime collected</div>
+            <div className="text-[10px] text-[#1D8B94] font-medium mt-0.5">Lifetime collected</div>
           </div>
 
           <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/70">
             <div className="text-[10px] uppercase font-semibold text-slate-400 tracking-wider">
               Active Subscriptions
             </div>
-            <div className="text-base sm:text-lg font-bold font-mono text-[#102B4E] tabular-nums mt-0.5">
+            <div className="text-base sm:text-lg font-bold font-mono text-[#04222B] tabular-nums mt-0.5">
               {customer.subscriptionCount}
             </div>
             <div className="text-[10px] text-slate-500 font-medium mt-0.5">
@@ -124,7 +124,7 @@ export const CustomerProfileModal: React.FC<CustomerProfileModalProps> = ({
             <div className="text-[10px] uppercase font-semibold text-slate-400 tracking-wider">
               Invoices Issued
             </div>
-            <div className="text-base sm:text-lg font-bold font-mono text-[#102B4E] tabular-nums mt-0.5">
+            <div className="text-base sm:text-lg font-bold font-mono text-[#04222B] tabular-nums mt-0.5">
               {customer.invoices.length}
             </div>
             <div className="text-[10px] text-slate-500 font-medium mt-0.5">
@@ -153,7 +153,7 @@ export const CustomerProfileModal: React.FC<CustomerProfileModalProps> = ({
             onClick={() => setActiveProfileTab('overview')}
             className={`py-3 font-semibold border-b-2 transition-all cursor-pointer ${
               activeProfileTab === 'overview'
-                ? 'border-[#102B4E] text-[#102B4E]'
+                ? 'border-[#1D8B94] text-[#1D8B94]'
                 : 'border-transparent text-slate-500 hover:text-slate-800'
             }`}
           >
@@ -163,7 +163,7 @@ export const CustomerProfileModal: React.FC<CustomerProfileModalProps> = ({
             onClick={() => setActiveProfileTab('subscriptions')}
             className={`py-3 font-semibold border-b-2 transition-all flex items-center gap-1.5 cursor-pointer ${
               activeProfileTab === 'subscriptions'
-                ? 'border-[#102B4E] text-[#102B4E]'
+                ? 'border-[#1D8B94] text-[#1D8B94]'
                 : 'border-transparent text-slate-500 hover:text-slate-800'
             }`}
           >
@@ -176,7 +176,7 @@ export const CustomerProfileModal: React.FC<CustomerProfileModalProps> = ({
             onClick={() => setActiveProfileTab('invoices')}
             className={`py-3 font-semibold border-b-2 transition-all flex items-center gap-1.5 cursor-pointer ${
               activeProfileTab === 'invoices'
-                ? 'border-[#102B4E] text-[#102B4E]'
+                ? 'border-[#1D8B94] text-[#1D8B94]'
                 : 'border-transparent text-slate-500 hover:text-slate-800'
             }`}
           >
@@ -189,7 +189,7 @@ export const CustomerProfileModal: React.FC<CustomerProfileModalProps> = ({
             onClick={() => setActiveProfileTab('payments')}
             className={`py-3 font-semibold border-b-2 transition-all flex items-center gap-1.5 cursor-pointer ${
               activeProfileTab === 'payments'
-                ? 'border-[#102B4E] text-[#102B4E]'
+                ? 'border-[#1D8B94] text-[#1D8B94]'
                 : 'border-transparent text-slate-500 hover:text-slate-800'
             }`}
           >
@@ -263,19 +263,19 @@ export const CustomerProfileModal: React.FC<CustomerProfileModalProps> = ({
 
                     <div className="flex items-center justify-between">
                       <span className="text-slate-500">Currency Default:</span>
-                      <span className="font-mono font-semibold text-[#102B4E]">USD ($)</span>
+                      <span className="font-mono font-semibold text-[#04222B]">USD ($)</span>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Quick Status Highlight */}
-              <div className="p-4 rounded-xl bg-emerald-50/70 border border-emerald-200/60 flex items-center justify-between">
+              <div className="p-4 rounded-xl bg-[#E2F4F0]/70 border border-[#98D8D0]/80 flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-5 h-5 text-[#10B981] shrink-0" />
+                  <CheckCircle2 className="w-5 h-5 text-[#1D8B94] shrink-0" />
                   <div>
-                    <div className="font-bold text-[#102B4E]">Automated Billing Active</div>
-                    <div className="text-[11px] text-emerald-800 mt-0.5">
+                    <div className="font-bold text-[#04222B]">Automated Billing Active</div>
+                    <div className="text-[11px] text-[#0A3D4A] mt-0.5">
                       Customer is enrolled in automated renewal cycles with synchronized invoice settlement.
                     </div>
                   </div>
@@ -302,8 +302,8 @@ export const CustomerProfileModal: React.FC<CustomerProfileModalProps> = ({
                     className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-4"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-lg bg-[#102B4E]/10 flex items-center justify-center text-[#102B4E]">
-                        <Repeat className="w-4 h-4 text-[#10B981]" />
+                      <div className="w-9 h-9 rounded-lg bg-[#E2F4F0] flex items-center justify-center text-[#1D8B94]">
+                        <Repeat className="w-4 h-4 text-[#1D8B94]" />
                       </div>
                       <div>
                         <div className="flex items-center gap-2">
@@ -311,7 +311,7 @@ export const CustomerProfileModal: React.FC<CustomerProfileModalProps> = ({
                           <span
                             className={`text-[10px] font-mono px-1.5 py-0.2 rounded font-semibold ${
                               sub.status === 'active'
-                                ? 'bg-emerald-50 text-[#10B981]'
+                                ? 'bg-[#E2F4F0] text-[#0A3D4A] border border-[#98D8D0]'
                                 : sub.status === 'past_due'
                                 ? 'bg-red-50 text-[#EF4444]'
                                 : 'bg-slate-200 text-slate-600'
@@ -327,7 +327,7 @@ export const CustomerProfileModal: React.FC<CustomerProfileModalProps> = ({
                     </div>
 
                     <div className="text-right">
-                      <div className="font-mono font-bold text-[#102B4E] text-sm tabular-nums">
+                      <div className="font-mono font-bold text-[#04222B] text-sm tabular-nums">
                         ${sub.amount.toFixed(2)}
                       </div>
                       <div className="text-[11px] text-slate-400 font-mono">
@@ -367,18 +367,18 @@ export const CustomerProfileModal: React.FC<CustomerProfileModalProps> = ({
                     <tbody className="divide-y divide-slate-100">
                       {customer.invoices.map((inv) => (
                         <tr key={inv.id} className="hover:bg-slate-50/80">
-                          <td className="py-2.5 px-3 font-mono font-medium text-[#102B4E]">
+                          <td className="py-2.5 px-3 font-mono font-medium text-[#04222B]">
                             {inv.invoiceNumber}
                           </td>
                           <td className="py-2.5 px-3 font-medium text-slate-800">{inv.planName}</td>
-                          <td className="py-2.5 px-3 text-right font-mono font-bold text-[#102B4E] tabular-nums">
+                          <td className="py-2.5 px-3 text-right font-mono font-bold text-[#04222B] tabular-nums">
                             ${inv.amount.toFixed(2)}
                           </td>
                           <td className="py-2.5 px-3">
                             <span
                               className={`text-[10px] font-mono px-1.5 py-0.2 rounded font-semibold ${
                                 inv.status === 'paid'
-                                  ? 'bg-emerald-50 text-[#10B981]'
+                                  ? 'bg-[#E2F4F0] text-[#0A3D4A] border border-[#98D8D0]'
                                   : inv.status === 'past_due'
                                   ? 'bg-red-50 text-[#EF4444]'
                                   : 'bg-blue-50 text-blue-600'
@@ -417,7 +417,7 @@ export const CustomerProfileModal: React.FC<CustomerProfileModalProps> = ({
                         <div
                           className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
                             pmt.status === 'succeeded'
-                              ? 'bg-emerald-50 text-[#10B981]'
+                              ? 'bg-[#E2F4F0] text-[#1D8B94]'
                               : pmt.status === 'failed'
                               ? 'bg-red-50 text-[#EF4444]'
                               : 'bg-amber-50 text-[#F59E0B]'
@@ -434,13 +434,13 @@ export const CustomerProfileModal: React.FC<CustomerProfileModalProps> = ({
                       </div>
 
                       <div className="text-right">
-                        <div className="font-mono font-bold text-[#102B4E] tabular-nums text-sm">
+                        <div className="font-mono font-bold text-[#04222B] tabular-nums text-sm">
                           ${pmt.amount.toFixed(2)}
                         </div>
                         <div
                           className={`text-[10px] font-mono font-semibold ${
                             pmt.status === 'succeeded'
-                              ? 'text-[#10B981]'
+                              ? 'text-[#1D8B94]'
                               : pmt.status === 'failed'
                               ? 'text-[#EF4444]'
                               : 'text-[#F59E0B]'
@@ -464,7 +464,7 @@ export const CustomerProfileModal: React.FC<CustomerProfileModalProps> = ({
           </div>
           <button
             onClick={onClose}
-            className="px-4 py-1.5 text-xs font-semibold text-white bg-[#102B4E] hover:bg-[#183B6B] rounded-lg transition-colors cursor-pointer"
+            className="px-4 py-1.5 text-xs font-semibold text-white bg-[#1D8B94] hover:bg-[#10606F] rounded-lg transition-colors cursor-pointer"
           >
             Close Profile
           </button>

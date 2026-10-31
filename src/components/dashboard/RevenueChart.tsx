@@ -64,14 +64,14 @@ export const RevenueChart: React.FC = () => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100">
         <div>
           <div className="flex items-center gap-2">
-            <h2 className="text-sm font-bold text-[#102B4E]">Recurring Revenue Trajectory</h2>
+            <h2 className="text-sm font-bold text-[#04222B]">Recurring Revenue Trajectory</h2>
             <span className="text-[11px] text-slate-400 font-medium">· Real-time sync</span>
           </div>
           <div className="flex items-baseline gap-2 mt-1">
-            <span className="text-xl font-bold font-mono text-[#102B4E] tabular-nums">
+            <span className="text-xl font-bold font-mono text-[#04222B] tabular-nums">
               {formatCurrency(activePoint.val)}
             </span>
-            <span className="text-xs font-semibold text-[#10B981] font-mono">
+            <span className="text-xs font-semibold text-[#1D8B94] font-mono">
               +{formatCurrency(activePoint.newMrr)} net additions ({activePoint.label})
             </span>
           </div>
@@ -83,9 +83,9 @@ export const RevenueChart: React.FC = () => {
           <div className="flex items-center bg-slate-100/90 p-0.5 rounded-lg text-xs">
             <button
               onClick={() => setViewMode('mrr')}
-              className={`px-2.5 py-1 rounded-md font-medium transition-all ${
+              className={`px-2.5 py-1 rounded-md font-medium transition-all cursor-pointer ${
                 viewMode === 'mrr'
-                  ? 'bg-white text-[#102B4E] shadow-xs'
+                  ? 'bg-white text-[#04222B] shadow-xs font-semibold'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -93,9 +93,9 @@ export const RevenueChart: React.FC = () => {
             </button>
             <button
               onClick={() => setViewMode('newMrr')}
-              className={`px-2.5 py-1 rounded-md font-medium transition-all ${
+              className={`px-2.5 py-1 rounded-md font-medium transition-all cursor-pointer ${
                 viewMode === 'newMrr'
-                  ? 'bg-white text-[#102B4E] shadow-xs'
+                  ? 'bg-white text-[#04222B] shadow-xs font-semibold'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -107,9 +107,9 @@ export const RevenueChart: React.FC = () => {
           <div className="flex items-center bg-slate-100/90 p-0.5 rounded-lg text-xs">
             <button
               onClick={() => setTimeRange('30d')}
-              className={`px-2.5 py-1 rounded-md font-medium transition-all ${
+              className={`px-2.5 py-1 rounded-md font-medium transition-all cursor-pointer ${
                 timeRange === '30d'
-                  ? 'bg-white text-[#102B4E] shadow-xs'
+                  ? 'bg-white text-[#04222B] shadow-xs font-semibold'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -117,9 +117,9 @@ export const RevenueChart: React.FC = () => {
             </button>
             <button
               onClick={() => setTimeRange('90d')}
-              className={`px-2.5 py-1 rounded-md font-medium transition-all ${
+              className={`px-2.5 py-1 rounded-md font-medium transition-all cursor-pointer ${
                 timeRange === '90d'
-                  ? 'bg-white text-[#102B4E] shadow-xs'
+                  ? 'bg-white text-[#04222B] shadow-xs font-semibold'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -127,9 +127,9 @@ export const RevenueChart: React.FC = () => {
             </button>
             <button
               onClick={() => setTimeRange('12m')}
-              className={`px-2.5 py-1 rounded-md font-medium transition-all ${
+              className={`px-2.5 py-1 rounded-md font-medium transition-all cursor-pointer ${
                 timeRange === '12m'
-                  ? 'bg-white text-[#102B4E] shadow-xs'
+                  ? 'bg-white text-[#04222B] shadow-xs font-semibold'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -148,9 +148,9 @@ export const RevenueChart: React.FC = () => {
         >
           <defs>
             <linearGradient id="revenueGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#102B4E" stopOpacity="0.22" />
-              <stop offset="85%" stopColor="#10B981" stopOpacity="0.04" />
-              <stop offset="100%" stopColor="#10B981" stopOpacity="0" />
+              <stop offset="0%" stopColor="#10606F" stopOpacity="0.25" />
+              <stop offset="75%" stopColor="#4FB8B4" stopOpacity="0.08" />
+              <stop offset="100%" stopColor="#E2F4F0" stopOpacity="0" />
             </linearGradient>
           </defs>
 
@@ -190,7 +190,7 @@ export const RevenueChart: React.FC = () => {
           <path
             d={pathD}
             fill="none"
-            stroke="#102B4E"
+            stroke="#1D8B94"
             strokeWidth="2.5"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -222,7 +222,7 @@ export const RevenueChart: React.FC = () => {
                     y1={paddingY}
                     x2={pt.x}
                     y2={svgHeight - paddingY}
-                    stroke="#102B4E"
+                    stroke="#10606F"
                     strokeWidth="1"
                     strokeDasharray="2 2"
                   />
@@ -234,7 +234,7 @@ export const RevenueChart: React.FC = () => {
                     cx={pt.x}
                     cy={pt.y}
                     r={isHovered ? '5' : '4'}
-                    fill="#10B981"
+                    fill="#4FB8B4"
                     stroke="#FFFFFF"
                     strokeWidth="2.5"
                   />
@@ -246,7 +246,7 @@ export const RevenueChart: React.FC = () => {
                   y={svgHeight - 6}
                   textAnchor="middle"
                   fontSize="10"
-                  fill={isHovered ? '#102B4E' : '#94A3B8'}
+                  fill={isHovered ? '#04222B' : '#94A3B8'}
                   fontWeight={isHovered ? '600' : '400'}
                   className="font-mono"
                 >
@@ -261,11 +261,11 @@ export const RevenueChart: React.FC = () => {
       <div className="mt-3 flex items-center justify-between text-[11px] text-slate-400 border-t border-slate-100 pt-3">
         <div className="flex items-center gap-4">
           <span className="flex items-center gap-1.5">
-            <span className="w-2.5 h-0.5 bg-[#102B4E] rounded-full inline-block" />
+            <span className="w-2.5 h-0.5 bg-[#1D8B94] rounded-full inline-block" />
             <span className="text-slate-600">Recurring Contract Value</span>
           </span>
           <span className="flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-[#10B981] inline-block" />
+            <span className="w-2 h-2 rounded-full bg-[#4FB8B4] inline-block" />
             <span className="text-slate-600">Net Growth Velocity</span>
           </span>
         </div>

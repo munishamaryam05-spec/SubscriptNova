@@ -161,7 +161,7 @@ export const PLAN_TIERS: PlanTier[] = [
     pricePerMonth: 49,
     subscribers: 720,
     mrr: 35280,
-    color: '#3B82F6', // Blue
+    color: '#4FB8B4', // Aqua accent
     percentage: 42,
   },
   {
@@ -170,7 +170,7 @@ export const PLAN_TIERS: PlanTier[] = [
     pricePerMonth: 149,
     subscribers: 460,
     mrr: 29900,
-    color: '#10B981', // Emerald
+    color: '#1D8B94', // Primary teal
     percentage: 35,
   },
   {
@@ -179,7 +179,7 @@ export const PLAN_TIERS: PlanTier[] = [
     pricePerMonth: 349,
     subscribers: 180,
     mrr: 15705,
-    color: '#102B4E', // Navy
+    color: '#0A3D4A', // Dark teal
     percentage: 18,
   },
   {
@@ -188,7 +188,7 @@ export const PLAN_TIERS: PlanTier[] = [
     pricePerMonth: 850,
     subscribers: 68,
     mrr: 3405,
-    color: '#F59E0B', // Amber
+    color: '#98D8D0', // Soft mint
     percentage: 5,
   },
 ];

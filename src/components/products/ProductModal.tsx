@@ -210,11 +210,11 @@ export const ProductModal: React.FC<ProductModalProps> = ({
         {/* Header */}
         <div className="p-4 sm:p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50/70 shrink-0">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-[#102B4E] text-[#10B981] flex items-center justify-center">
+            <div className="w-8 h-8 rounded-lg bg-[#04222B] text-[#4FB8B4] flex items-center justify-center">
               {isEditing ? <Edit3 className="w-4 h-4" /> : <PackagePlus className="w-4 h-4" />}
             </div>
             <div>
-              <h3 className="text-sm font-bold text-[#102B4E]">
+              <h3 className="text-sm font-bold text-[#04222B]">
                 {isEditing ? 'Edit Product Configuration' : 'Add New Product'}
               </h3>
               <p className="text-[11px] text-slate-400">
@@ -248,7 +248,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                 onChange={(e) => setName(e.target.value)}
                 onBlur={() => handleBlur('name')}
                 placeholder="e.g. Odoo Software Suite"
-                className={`w-full px-3 py-2 bg-slate-50 border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#102B4E] ${
+                className={`w-full px-3 py-2 bg-slate-50 border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#1D8B94] ${
                   touched.name && errors.name
                     ? 'border-[#EF4444] bg-red-50/20'
                     : 'border-slate-200'
@@ -269,7 +269,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
               <select
                 value={productType}
                 onChange={(e) => setProductType(e.target.value as ProductType)}
-                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-none focus:ring-1 focus:ring-[#102B4E]"
+                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-none focus:ring-1 focus:ring-[#1D8B94]"
               >
                 {PRODUCT_TYPES.map((t) => (
                   <option key={t} value={t}>
@@ -298,7 +298,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                   onChange={(e) => setSalesPrice(e.target.value)}
                   onBlur={() => handleBlur('salesPrice')}
                   placeholder="2000.00"
-                  className={`w-full pl-7 pr-3 py-2 bg-white border rounded-lg text-slate-800 font-mono font-medium focus:outline-none focus:ring-1 focus:ring-[#102B4E] ${
+                  className={`w-full pl-7 pr-3 py-2 bg-white border rounded-lg text-slate-800 font-mono font-medium focus:outline-none focus:ring-1 focus:ring-[#1D8B94] ${
                     touched.salesPrice && errors.salesPrice
                       ? 'border-[#EF4444] bg-red-50/20'
                       : 'border-slate-200'
@@ -329,7 +329,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                   onChange={(e) => setCostPrice(e.target.value)}
                   onBlur={() => handleBlur('costPrice')}
                   placeholder="650.00"
-                  className="w-full pl-7 pr-3 py-2 bg-white border border-slate-200 rounded-lg text-slate-800 font-mono focus:outline-none focus:ring-1 focus:ring-[#102B4E]"
+                  className="w-full pl-7 pr-3 py-2 bg-white border border-slate-200 rounded-lg text-slate-800 font-mono focus:outline-none focus:ring-1 focus:ring-[#1D8B94]"
                 />
               </div>
             </div>
@@ -340,7 +340,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
               </label>
               <div className="px-3 py-2 bg-white border border-slate-200 rounded-lg font-mono text-[11px] flex items-center justify-between">
                 <span className="text-slate-400">Profit:</span>
-                <span className="font-bold text-[#10B981]">
+                <span className="font-bold text-[#1D8B94]">
                   ${(basePriceNum - costPriceNum).toFixed(2)}
                 </span>
               </div>
@@ -363,7 +363,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="Product description displayed on invoices, quotations, and customer portals..."
-                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#102B4E] resize-none"
+                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#1D8B94] resize-none"
               />
             </div>
 
@@ -376,7 +376,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                 value={internalNotes}
                 onChange={(e) => setInternalNotes(e.target.value)}
                 placeholder="Private billing team notes, vendor references, licensing keys..."
-                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#102B4E]"
+                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#1D8B94]"
               />
             </div>
           </div>
@@ -392,7 +392,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                 onClick={() => setStatus('active')}
                 className={`flex-1 py-1.5 text-[11px] font-semibold rounded-md transition-colors cursor-pointer ${
                   status === 'active'
-                    ? 'bg-white text-[#10B981] shadow-xs'
+                    ? 'bg-white text-[#1D8B94] shadow-xs'
                     : 'text-slate-500 hover:text-slate-800'
                 }`}
               >
@@ -416,8 +416,8 @@ export const ProductModal: React.FC<ProductModalProps> = ({
           <div className="pt-2 border-t border-slate-200/80">
             <div className="flex items-center justify-between mb-2">
               <div>
-                <h4 className="text-xs font-bold text-[#102B4E] flex items-center gap-1.5">
-                  <Layers className="w-3.5 h-3.5 text-[#10B981]" />
+                <h4 className="text-xs font-bold text-[#04222B] flex items-center gap-1.5">
+                  <Layers className="w-3.5 h-3.5 text-[#1D8B94]" />
                   <span>Product Variants ({variants.length})</span>
                 </h4>
                 <p className="text-[10px] text-slate-400">
@@ -429,9 +429,9 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                 <button
                   type="button"
                   onClick={() => setShowAddVariant(true)}
-                  className="inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-semibold text-[#102B4E] bg-[#102B4E]/10 hover:bg-[#102B4E]/15 rounded-lg transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-semibold text-[#1D8B94] bg-[#E2F4F0] hover:bg-[#E2F4F0]/80 rounded-lg transition-colors cursor-pointer"
                 >
-                  <Plus className="w-3 h-3 text-[#10B981]" />
+                  <Plus className="w-3 h-3 text-[#1D8B94]" />
                   <span>Add Variant</span>
                 </button>
               )}
@@ -459,7 +459,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                           <span
                             className={`text-[9px] font-mono uppercase px-1.5 py-0.2 rounded font-semibold ${
                               v.availabilityStatus === 'available'
-                                ? 'bg-emerald-50 text-[#10B981]'
+                                ? 'bg-[#E2F4F0] text-[#0A3D4A] border border-[#98D8D0]'
                                 : v.availabilityStatus === 'out_of_stock'
                                 ? 'bg-amber-50 text-[#F59E0B]'
                                 : 'bg-slate-200 text-slate-600'
@@ -476,7 +476,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
 
                     <div className="flex items-center justify-between sm:justify-end gap-3 shrink-0">
                       <div className="text-right">
-                        <div className="text-xs font-bold font-mono text-[#102B4E] tabular-nums">
+                        <div className="text-xs font-bold font-mono text-[#04222B] tabular-nums">
                           ${finalPrice.toFixed(2)}
                         </div>
                         <div className="text-[10px] text-slate-400">Calculated Final Price</div>
@@ -500,7 +500,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
             {showAddVariant && (
               <div className="mt-3 p-3.5 rounded-xl bg-blue-50/50 border border-blue-200/80 space-y-3 animate-in fade-in duration-100">
                 <div className="flex items-center justify-between">
-                  <span className="font-semibold text-[#102B4E] text-[11px]">
+                  <span className="font-semibold text-[#04222B] text-[11px]">
                     Configure New Variant
                   </span>
                   <button
@@ -525,7 +525,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                       value={newVarName}
                       onChange={(e) => setNewVarName(e.target.value)}
                       placeholder="e.g. Enterprise Edition"
-                      className="w-full px-2.5 py-1.5 bg-white border border-slate-200 rounded-md text-xs focus:outline-none focus:ring-1 focus:ring-[#102B4E]"
+                      className="w-full px-2.5 py-1.5 bg-white border border-slate-200 rounded-md text-xs focus:outline-none focus:ring-1 focus:ring-[#1D8B94]"
                     />
                   </div>
 
@@ -540,7 +540,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                       value={newVarAddPrice}
                       onChange={(e) => setNewVarAddPrice(e.target.value)}
                       placeholder="560.00"
-                      className="w-full px-2.5 py-1.5 bg-white border border-slate-200 rounded-md text-xs font-mono focus:outline-none focus:ring-1 focus:ring-[#102B4E]"
+                      className="w-full px-2.5 py-1.5 bg-white border border-slate-200 rounded-md text-xs font-mono focus:outline-none focus:ring-1 focus:ring-[#1D8B94]"
                     />
                   </div>
 
@@ -553,7 +553,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                       value={newVarSku}
                       onChange={(e) => setNewVarSku(e.target.value)}
                       placeholder="e.g. SN-ODOO-ENT"
-                      className="w-full px-2.5 py-1.5 bg-white border border-slate-200 rounded-md text-xs font-mono uppercase focus:outline-none focus:ring-1 focus:ring-[#102B4E]"
+                      className="w-full px-2.5 py-1.5 bg-white border border-slate-200 rounded-md text-xs font-mono uppercase focus:outline-none focus:ring-1 focus:ring-[#1D8B94]"
                     />
                   </div>
                 </div>
@@ -590,7 +590,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                     <button
                       type="button"
                       onClick={handleAddVariant}
-                      className="px-3 py-1 bg-[#102B4E] text-white rounded text-xs font-semibold hover:bg-[#183B6B]"
+                      className="px-3 py-1 bg-[#1D8B94] text-white rounded text-xs font-semibold hover:bg-[#10606F]"
                     >
                       Save Variant
                     </button>
@@ -615,7 +615,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
             </button>
             <button
               type="submit"
-              className="px-4 py-2 text-xs font-semibold text-white bg-[#102B4E] hover:bg-[#183B6B] rounded-lg transition-colors shadow-xs cursor-pointer"
+              className="px-4 py-2 text-xs font-semibold text-white bg-[#1D8B94] hover:bg-[#10606F] rounded-lg transition-colors shadow-xs cursor-pointer"
             >
               {isEditing ? 'Save Product Changes' : 'Create Product Entry'}
             </button>

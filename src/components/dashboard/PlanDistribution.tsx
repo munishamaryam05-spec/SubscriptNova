@@ -11,10 +11,10 @@ export const PlanDistribution: React.FC = () => {
       <div>
         <div className="flex items-center justify-between pb-3 border-b border-slate-100">
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-md bg-[#102B4E]/10 flex items-center justify-center text-[#102B4E]">
+            <div className="w-6 h-6 rounded-md bg-[#0A3D4A]/10 flex items-center justify-center text-[#0A3D4A]">
               <Layers className="w-3.5 h-3.5" />
             </div>
-            <h3 className="text-sm font-bold text-[#102B4E]">Plan Tier Distribution</h3>
+            <h3 className="text-sm font-bold text-[#04222B]">Plan Tier Distribution</h3>
           </div>
           <span className="text-xs font-mono font-semibold text-slate-500 tabular-nums">
             {totalSubscribers} active subs
@@ -66,7 +66,7 @@ export const PlanDistribution: React.FC = () => {
               </div>
 
               <div className="text-right">
-                <div className="text-xs font-bold font-mono text-[#102B4E] tabular-nums">
+                <div className="text-xs font-bold font-mono text-[#04222B] tabular-nums">
                   ${tier.mrr.toLocaleString()}
                 </div>
                 <div className="text-[10px] text-slate-400 font-mono">
@@ -80,7 +80,7 @@ export const PlanDistribution: React.FC = () => {
 
       <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
         <span>Combined MRR from Tiers</span>
-        <span className="font-bold text-[#102B4E] font-mono tabular-nums">
+        <span className="font-bold text-[#04222B] font-mono tabular-nums">
           ${totalMrr.toLocaleString()} / mo
         </span>
       </div>

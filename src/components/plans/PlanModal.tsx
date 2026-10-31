@@ -230,11 +230,11 @@ export const PlanModal: React.FC<PlanModalProps> = ({
         {/* Header */}
         <div className="p-4 sm:p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50/70 shrink-0">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-[#102B4E] text-[#10B981] flex items-center justify-center">
+            <div className="w-8 h-8 rounded-lg bg-[#04222B] text-[#4FB8B4] flex items-center justify-center">
               {isEditing ? <Edit3 className="w-4 h-4" /> : <Layers className="w-4 h-4" />}
             </div>
             <div>
-              <h3 className="text-sm font-bold text-[#102B4E]">
+              <h3 className="text-sm font-bold text-[#04222B]">
                 {isEditing ? 'Edit Subscription Plan' : 'Create Subscription Plan'}
               </h3>
               <p className="text-[11px] text-slate-400">
@@ -566,7 +566,7 @@ export const PlanModal: React.FC<PlanModalProps> = ({
                   type="checkbox"
                   checked={autoClose}
                   onChange={(e) => setAutoClose(e.target.checked)}
-                  className="rounded text-[#102B4E] focus:ring-[#102B4E] w-4 h-4"
+                  className="rounded text-[#1D8B94] focus:ring-[#1D8B94] w-4 h-4"
                 />
                 <div>
                   <span className="font-semibold text-slate-800 block">Auto-close Option</span>
@@ -586,7 +586,7 @@ export const PlanModal: React.FC<PlanModalProps> = ({
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Summary of entitlements, seat allowances, and SLA inclusions for this plan tier..."
-              className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#102B4E] resize-none"
+              className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#1D8B94] resize-none"
             />
           </div>
 
@@ -601,7 +601,7 @@ export const PlanModal: React.FC<PlanModalProps> = ({
             </button>
             <button
               type="submit"
-              className="px-4 py-2 text-xs font-semibold text-white bg-[#102B4E] hover:bg-[#183B6B] rounded-lg transition-colors shadow-xs cursor-pointer"
+              className="px-4 py-2 text-xs font-semibold text-white bg-[#1D8B94] hover:bg-[#10606F] rounded-lg transition-colors shadow-xs cursor-pointer"
             >
               {isEditing ? 'Save Plan Changes' : 'Create Subscription Plan'}
             </button>

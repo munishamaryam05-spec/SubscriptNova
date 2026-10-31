@@ -7,7 +7,6 @@ import {
   CheckCircle2,
   AlertTriangle,
   Clock,
-  Sparkles,
   ChevronDown,
 } from 'lucide-react';
 import { NavigationTab } from '../../types/navigation';
@@ -39,7 +38,7 @@ export const Header: React.FC<HeaderProps> = ({
       <div className="flex items-center gap-3 min-w-0">
         <button
           onClick={onOpenMobileMenu}
-          className="lg:hidden p-1.5 rounded-lg text-slate-500 hover:text-slate-800 hover:bg-slate-100"
+          className="lg:hidden p-1.5 rounded-lg text-slate-500 hover:text-slate-800 hover:bg-slate-100 cursor-pointer"
           aria-label="Open navigation menu"
         >
           <Menu className="w-5 h-5" />
@@ -48,7 +47,7 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="flex items-center gap-2 text-xs">
           <span className="text-slate-400 font-medium hidden sm:inline">SubscriptNova</span>
           <span className="text-slate-300 hidden sm:inline">/</span>
-          <h1 className="text-sm sm:text-base font-bold text-[#102B4E] tracking-tight truncate">
+          <h1 className="text-sm sm:text-base font-bold text-[#04222B] tracking-tight truncate">
             {currentTabConfig ? currentTabConfig.label : 'Dashboard'}
           </h1>
         </div>
@@ -63,7 +62,7 @@ export const Header: React.FC<HeaderProps> = ({
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
             placeholder="Search subscriptions, customers, invoices... (⌘K)"
-            className="w-full pl-9 pr-12 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#102B4E]/10 focus:border-[#102B4E] transition-all"
+            className="w-full pl-9 pr-12 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#1D8B94]/20 focus:border-[#1D8B94] transition-all"
           />
           <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] font-mono text-slate-400 bg-white px-1.5 py-0.5 border border-slate-200 rounded">
             ⌘K
@@ -76,9 +75,9 @@ export const Header: React.FC<HeaderProps> = ({
         {/* Quick Action Button */}
         <button
           onClick={onOpenCreateSubscription}
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-[#102B4E] hover:bg-[#183B6B] active:bg-[#0A1C33] rounded-lg shadow-xs transition-colors whitespace-nowrap cursor-pointer"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-[#1D8B94] hover:bg-[#10606F] rounded-lg shadow-xs transition-colors whitespace-nowrap cursor-pointer"
         >
-          <Plus className="w-3.5 h-3.5 text-[#10B981]" />
+          <Plus className="w-3.5 h-3.5 text-[#E2F4F0]" />
           <span>New Subscription</span>
         </button>
 
@@ -86,23 +85,23 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="relative">
           <button
             onClick={() => setShowNotifications(!showNotifications)}
-            className="relative p-2 rounded-lg text-slate-500 hover:text-slate-800 hover:bg-slate-100 transition-colors cursor-pointer"
+            className="relative p-2 rounded-lg text-slate-500 hover:text-[#04222B] hover:bg-slate-100 transition-colors cursor-pointer"
             aria-label="View notifications"
           >
             <Bell className="w-4 h-4" />
-            <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#10B981]" />
+            <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#4FB8B4]" />
           </button>
 
           {showNotifications && (
-            <div className="absolute right-0 mt-2 w-80 bg-white rounded-xl shadow-lg border border-slate-200 p-3 z-50">
+            <div className="absolute right-0 mt-2 w-80 bg-white rounded-xl shadow-lg border border-slate-200 p-3 z-50 animate-in fade-in zoom-in-95 duration-100">
               <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-100">
-                <span className="text-xs font-bold text-[#102B4E]">Billing Activity Alerts</span>
-                <span className="text-[10px] text-slate-400">3 unread</span>
+                <span className="text-xs font-bold text-[#04222B]">Billing Activity Alerts</span>
+                <span className="text-[10px] font-semibold text-[#1D8B94] font-mono">3 unread</span>
               </div>
               <div className="space-y-2 text-xs">
                 <div className="p-2 rounded-lg bg-slate-50 hover:bg-slate-100/70 transition-colors">
                   <div className="flex items-center gap-1.5 text-slate-800 font-medium">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981]" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#1D8B94]" />
                     <span>Annual Payment Collected</span>
                   </div>
                   <p className="text-[11px] text-slate-500 mt-0.5">
@@ -124,7 +123,7 @@ export const Header: React.FC<HeaderProps> = ({
 
                 <div className="p-2 rounded-lg bg-slate-50 hover:bg-slate-100/70 transition-colors">
                   <div className="flex items-center gap-1.5 text-slate-800 font-medium">
-                    <Clock className="w-3.5 h-3.5 text-[#102B4E]" />
+                    <Clock className="w-3.5 h-3.5 text-[#10606F]" />
                     <span>Trial Expiring Soon</span>
                   </div>
                   <p className="text-[11px] text-slate-500 mt-0.5">
@@ -135,7 +134,7 @@ export const Header: React.FC<HeaderProps> = ({
               </div>
               <button
                 onClick={() => setShowNotifications(false)}
-                className="w-full mt-2 pt-2 border-t border-slate-100 text-center text-[11px] text-[#102B4E] font-medium hover:underline"
+                className="w-full mt-2 pt-2 border-t border-slate-100 text-center text-[11px] text-[#1D8B94] font-medium hover:underline cursor-pointer"
               >
                 Close notifications
               </button>
@@ -149,7 +148,7 @@ export const Header: React.FC<HeaderProps> = ({
             onClick={() => setShowProfileMenu(!showProfileMenu)}
             className="flex items-center gap-2 p-1 pl-2 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer"
           >
-            <div className="w-7 h-7 rounded-full bg-[#102B4E] text-white flex items-center justify-center text-xs font-bold">
+            <div className="w-7 h-7 rounded-full bg-[#0A3D4A] text-[#98D8D0] border border-[#10606F] flex items-center justify-center text-xs font-bold font-mono">
               ER
             </div>
             <div className="hidden sm:block text-left">
@@ -160,36 +159,30 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
 
           {showProfileMenu && (
-            <div className="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-slate-200 p-2 z-50">
+            <div className="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-slate-200 p-2 z-50 animate-in fade-in zoom-in-95 duration-100">
               <div className="px-2 py-1.5 border-b border-slate-100 mb-1">
-                <p className="text-xs font-semibold text-[#102B4E]">Elena Rostova</p>
+                <p className="text-xs font-semibold text-[#04222B]">Elena Rostova</p>
                 <p className="text-[11px] text-slate-500 truncate">elena.rostova@acme.tech</p>
-                <div className="mt-1 flex items-center gap-1 text-[10px] text-[#10B981] font-mono">
+                <div className="mt-1 flex items-center gap-1 text-[10px] text-[#1D8B94] font-mono">
                   <span>●</span> Role: Admin / Billing Superuser
                 </div>
               </div>
               <button
-                onClick={() => {
-                  setShowProfileMenu(false);
-                  alert('SubscriptNova workspace settings are managed in your company profile.');
-                }}
-                className="w-full text-left px-2 py-1.5 text-xs text-slate-700 hover:bg-slate-50 rounded-md"
+                onClick={() => setShowProfileMenu(false)}
+                className="w-full text-left px-2 py-1.5 text-xs text-slate-700 hover:bg-[#E2F4F0]/60 rounded-md cursor-pointer"
               >
                 Workspace Settings
               </button>
               <button
-                onClick={() => {
-                  setShowProfileMenu(false);
-                  alert('API Keys and Webhooks module will be configurable in subsequent steps.');
-                }}
-                className="w-full text-left px-2 py-1.5 text-xs text-slate-700 hover:bg-slate-50 rounded-md"
+                onClick={() => setShowProfileMenu(false)}
+                className="w-full text-left px-2 py-1.5 text-xs text-slate-700 hover:bg-[#E2F4F0]/60 rounded-md cursor-pointer"
               >
                 API Keys & Webhooks
               </button>
               <div className="my-1 border-t border-slate-100" />
               <button
                 onClick={() => setShowProfileMenu(false)}
-                className="w-full text-left px-2 py-1.5 text-xs text-slate-500 hover:bg-slate-50 rounded-md"
+                className="w-full text-left px-2 py-1.5 text-xs text-slate-500 hover:bg-slate-50 rounded-md cursor-pointer"
               >
                 Dismiss Menu
               </button>

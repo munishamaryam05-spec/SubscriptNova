@@ -113,11 +113,11 @@ export const CustomerModal: React.FC<CustomerModalProps> = ({
         {/* Header */}
         <div className="p-4 sm:p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50/70">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-[#102B4E] text-[#10B981] flex items-center justify-center">
+            <div className="w-8 h-8 rounded-lg bg-[#04222B] text-[#4FB8B4] flex items-center justify-center">
               {isEditing ? <Edit3 className="w-4 h-4" /> : <UserPlus className="w-4 h-4" />}
             </div>
             <div>
-              <h3 className="text-sm font-bold text-[#102B4E]">
+              <h3 className="text-sm font-bold text-[#04222B]">
                 {isEditing ? 'Edit Customer Details' : 'Add New Customer'}
               </h3>
               <p className="text-[11px] text-slate-400">
@@ -255,7 +255,7 @@ export const CustomerModal: React.FC<CustomerModalProps> = ({
                   onClick={() => setFormData({ ...formData, status: 'active' })}
                   className={`flex-1 py-1.5 text-[11px] font-semibold rounded-md transition-colors cursor-pointer ${
                     formData.status === 'active'
-                      ? 'bg-white text-[#10B981] shadow-xs'
+                      ? 'bg-white text-[#1D8B94] shadow-xs'
                       : 'text-slate-500 hover:text-slate-800'
                   }`}
                 >
@@ -284,7 +284,7 @@ export const CustomerModal: React.FC<CustomerModalProps> = ({
                 value={formData.taxId}
                 onChange={(e) => setFormData({ ...formData, taxId: e.target.value })}
                 placeholder="e.g. US-942817482"
-                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#102B4E]"
+                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#1D8B94]"
               />
             </div>
           </div>
@@ -299,7 +299,7 @@ export const CustomerModal: React.FC<CustomerModalProps> = ({
               value={formData.billingAddress}
               onChange={(e) => setFormData({ ...formData, billingAddress: e.target.value })}
               placeholder="450 Mission Street, Suite 1200, San Francisco, CA 94105, USA"
-              className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#102B4E] resize-none"
+              className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#1D8B94] resize-none"
             />
           </div>
 
@@ -314,7 +314,7 @@ export const CustomerModal: React.FC<CustomerModalProps> = ({
             </button>
             <button
               type="submit"
-              className="px-4 py-2 text-xs font-semibold text-white bg-[#102B4E] hover:bg-[#183B6B] rounded-lg transition-colors shadow-xs cursor-pointer"
+              className="px-4 py-2 text-xs font-semibold text-white bg-[#1D8B94] hover:bg-[#10606F] rounded-lg transition-colors shadow-xs cursor-pointer"
             >
               {isEditing ? 'Save Changes' : 'Create Customer Record'}
             </button>

@@ -276,13 +276,13 @@ export const BillingCycleModal: React.FC<BillingCycleModalProps> = ({
         {/* Header */}
         <div className="p-4 sm:px-6 bg-slate-50/90 border-b border-slate-200 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-[#102B4E] text-white flex items-center justify-center font-bold shadow-xs">
-              <RotateCw className="w-4 h-4 text-[#10B981]" />
+            <div className="w-9 h-9 rounded-xl bg-[#04222B] text-white border border-[#0A3D4A] flex items-center justify-center font-bold shadow-xs">
+              <RotateCw className="w-4 h-4 text-[#4FB8B4]" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="text-base font-bold text-[#102B4E]">Run Billing Cycle</h3>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-50 text-[#10B981] font-semibold border border-emerald-200">
+                <h3 className="text-base font-bold text-[#04222B]">Run Billing Cycle</h3>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#E2F4F0] text-[#0A3D4A] font-semibold border border-[#98D8D0]">
                   Recurring Orchestrator
                 </span>
               </div>
@@ -301,8 +301,8 @@ export const BillingCycleModal: React.FC<BillingCycleModalProps> = ({
         </div>
 
         {/* Disclaimer Notice */}
-        <div className="px-6 py-2.5 bg-blue-50/70 border-b border-blue-100 flex items-center gap-2 text-xs text-blue-800">
-          <Info className="w-4 h-4 text-blue-600 shrink-0" />
+        <div className="px-6 py-2.5 bg-[#E2F4F0]/60 border-b border-[#98D8D0]/40 flex items-center gap-2 text-xs text-[#0A3D4A]">
+          <Info className="w-4 h-4 text-[#1D8B94] shrink-0" />
           <span>
             <strong>Manual Trigger Engine:</strong> This is a manually triggered demo billing cycle
             for testing recurring invoicing. Background automatic cron scheduling is not configured
@@ -315,13 +315,13 @@ export const BillingCycleModal: React.FC<BillingCycleModalProps> = ({
           {runResult ? (
             /* Post-Run Execution Summary */
             <div className="space-y-5 animate-in fade-in duration-200">
-              <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-[#10B981] shrink-0 mt-0.5" />
+              <div className="p-4 rounded-xl bg-[#E2F4F0] border border-[#98D8D0] text-[#0A3D4A] flex items-start gap-3">
+                <CheckCircle2 className="w-5 h-5 text-[#1D8B94] shrink-0 mt-0.5" />
                 <div>
                   <h4 className="font-bold text-sm">
                     Billing Cycle Run Completed Successfully!
                   </h4>
-                  <p className="text-xs text-emerald-700 mt-0.5">
+                  <p className="text-xs text-slate-600 mt-0.5">
                     Generated {runResult.invoicesGeneratedCount} invoice(s) totaling $
                     {runResult.totalInvoicedAmount.toFixed(2)} with strict duplicate prevention.
                     Next billing dates have been securely advanced.
@@ -342,7 +342,7 @@ export const BillingCycleModal: React.FC<BillingCycleModalProps> = ({
                     >
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="font-mono font-bold text-[#102B4E]">
+                          <span className="font-mono font-bold text-[#04222B]">
                             {inv.invoiceNumber}
                           </span>
                           <span className="text-slate-500 font-semibold">•</span>
@@ -357,10 +357,10 @@ export const BillingCycleModal: React.FC<BillingCycleModalProps> = ({
                         </div>
                       </div>
                       <div className="text-right sm:shrink-0 font-mono">
-                        <span className="font-bold text-[#102B4E] text-sm">
+                        <span className="font-bold text-[#04222B] text-sm">
                           ${inv.totalAmount.toFixed(2)}
                         </span>
-                        <span className="block text-[10px] text-[#10B981] font-sans font-semibold">
+                        <span className="block text-[10px] text-[#1D8B94] font-sans font-semibold">
                           Confirmed & Recorded
                         </span>
                       </div>
@@ -407,7 +407,7 @@ export const BillingCycleModal: React.FC<BillingCycleModalProps> = ({
                     type="date"
                     value={cutoffDate}
                     onChange={(e) => setCutoffDate(e.target.value)}
-                    className="w-full px-2.5 py-1.5 bg-white border border-slate-300 rounded-lg text-slate-800 font-mono text-xs focus:outline-none focus:ring-1 focus:ring-[#102B4E]"
+                    className="w-full px-2.5 py-1.5 bg-white border border-slate-300 rounded-lg text-slate-800 font-mono text-xs focus:outline-none focus:ring-1 focus:ring-[#1D8B94]"
                   />
                   <div className="flex flex-wrap gap-1 mt-1.5">
                     <button
@@ -485,11 +485,11 @@ export const BillingCycleModal: React.FC<BillingCycleModalProps> = ({
                     {subscriptions.length}
                   </div>
                 </div>
-                <div className="p-3 rounded-xl bg-emerald-50/70 border border-emerald-200">
-                  <span className="text-[10px] font-bold text-emerald-700 uppercase">
+                <div className="p-3 rounded-xl bg-[#E2F4F0] border border-[#98D8D0]">
+                  <span className="text-[10px] font-bold text-[#0A3D4A] uppercase">
                     Eligible to Bill
                   </span>
-                  <div className="text-lg font-bold text-[#10B981] mt-0.5">
+                  <div className="text-lg font-bold text-[#1D8B94] mt-0.5">
                     {evaluation.eligible.length}
                   </div>
                 </div>
@@ -501,11 +501,11 @@ export const BillingCycleModal: React.FC<BillingCycleModalProps> = ({
                     {evaluation.skipped.length}
                   </div>
                 </div>
-                <div className="p-3 rounded-xl bg-blue-50/70 border border-blue-200">
-                  <span className="text-[10px] font-bold text-blue-700 uppercase">
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                  <span className="text-[10px] font-bold text-slate-500 uppercase">
                     Estimated Billing
                   </span>
-                  <div className="text-lg font-bold text-[#102B4E] mt-0.5 font-mono">
+                  <div className="text-lg font-bold text-[#04222B] mt-0.5 font-mono">
                     $
                     {evaluation.eligible
                       .reduce((sum, item) => sum + item.subscription.totalAmount * 1.1, 0)
@@ -518,7 +518,7 @@ export const BillingCycleModal: React.FC<BillingCycleModalProps> = ({
               <div>
                 <div className="flex items-center justify-between mb-2">
                   <h4 className="font-bold text-slate-800 text-xs uppercase tracking-wider flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981]" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#1D8B94]" />
                     <span>Eligible for Billing Run ({evaluation.eligible.length})</span>
                   </h4>
                   <span className="text-[11px] text-slate-400 font-mono">
@@ -544,13 +544,13 @@ export const BillingCycleModal: React.FC<BillingCycleModalProps> = ({
                       >
                         <div>
                           <div className="flex items-center gap-2">
-                            <span className="font-mono font-bold text-[#102B4E]">
+                            <span className="font-mono font-bold text-[#04222B]">
                               {item.subscription.subscriptionNumber}
                             </span>
                             <span className="font-semibold text-slate-800">
                               {item.subscription.customerName}
                             </span>
-                            <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-blue-50 text-blue-700 font-semibold border border-blue-200">
+                            <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#E2F4F0] text-[#0A3D4A] font-semibold border border-[#98D8D0]">
                               {item.subscription.billingFrequency}
                             </span>
                           </div>
@@ -563,7 +563,7 @@ export const BillingCycleModal: React.FC<BillingCycleModalProps> = ({
                         </div>
 
                         <div className="sm:text-right font-mono">
-                          <div className="font-bold text-[#102B4E]">
+                          <div className="font-bold text-[#04222B]">
                             ${(item.subscription.totalAmount * 1.1).toFixed(2)}
                             <span className="text-[10px] text-slate-400 font-sans ml-1">incl. tax</span>
                           </div>
@@ -636,7 +636,7 @@ export const BillingCycleModal: React.FC<BillingCycleModalProps> = ({
               type="button"
               disabled={evaluation.eligible.length === 0}
               onClick={handleRunExecution}
-              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-[#10B981] hover:bg-[#0ea372] disabled:opacity-40 disabled:cursor-not-allowed rounded-lg shadow-xs transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-[#1D8B94] hover:bg-[#10606F] disabled:opacity-40 disabled:cursor-not-allowed rounded-lg shadow-xs transition-colors cursor-pointer"
             >
               <Play className="w-3.5 h-3.5 fill-current" />
               <span>Execute Billing Run ({evaluation.eligible.length} Subscriptions)</span>

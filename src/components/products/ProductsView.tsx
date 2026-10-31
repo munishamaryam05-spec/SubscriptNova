@@ -187,11 +187,11 @@ export const ProductsView: React.FC<ProductsViewProps> = ({ onShowToast }) => {
       {/* 1. Header Banner */}
       <div className="bg-white rounded-2xl border border-slate-200/80 p-5 sm:p-6 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2 text-xs font-semibold text-[#10B981]">
-            <span className="w-2 h-2 rounded-full bg-[#10B981]" />
+          <div className="flex items-center gap-2 text-xs font-semibold text-[#1D8B94]">
+            <span className="w-2 h-2 rounded-full bg-[#1D8B94]" />
             <span>Product Catalog & Service Units</span>
           </div>
-          <h1 className="text-xl sm:text-2xl font-bold text-[#102B4E] mt-1 tracking-tight">
+          <h1 className="text-xl sm:text-2xl font-bold text-[#04222B] mt-1 tracking-tight">
             Products & Variants
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
@@ -228,9 +228,9 @@ export const ProductsView: React.FC<ProductsViewProps> = ({ onShowToast }) => {
 
           <button
             onClick={handleOpenAdd}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-white bg-[#102B4E] hover:bg-[#183B6B] active:bg-[#0A1C33] rounded-lg shadow-xs transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-white bg-[#1D8B94] hover:bg-[#10606F] active:bg-[#0A3D4A] rounded-lg shadow-xs transition-colors cursor-pointer"
           >
-            <Plus className="w-3.5 h-3.5 text-[#10B981]" />
+            <Plus className="w-3.5 h-3.5 text-[#E2F4F0]" />
             <span>Add Product</span>
           </button>
         </div>
@@ -244,11 +244,11 @@ export const ProductsView: React.FC<ProductsViewProps> = ({ onShowToast }) => {
             <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
               Total Products
             </span>
-            <div className="w-7 h-7 rounded-lg bg-[#102B4E]/5 flex items-center justify-center text-[#102B4E]">
+            <div className="w-7 h-7 rounded-lg bg-[#04222B]/5 flex items-center justify-center text-[#04222B]">
               <Package className="w-3.5 h-3.5" />
             </div>
           </div>
-          <div className="text-2xl font-bold font-mono text-[#102B4E] tabular-nums mt-1">
+          <div className="text-2xl font-bold font-mono text-[#04222B] tabular-nums mt-1">
             {totalProducts}
           </div>
           <div className="text-[11px] text-slate-400 mt-1">Catalog items configured</div>
@@ -260,11 +260,11 @@ export const ProductsView: React.FC<ProductsViewProps> = ({ onShowToast }) => {
             <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
               Active Products
             </span>
-            <div className="w-7 h-7 rounded-lg bg-[#10B981]/10 flex items-center justify-center text-[#10B981]">
+            <div className="w-7 h-7 rounded-lg bg-[#E2F4F0] flex items-center justify-center text-[#1D8B94]">
               <CheckCircle2 className="w-3.5 h-3.5" />
             </div>
           </div>
-          <div className="text-2xl font-bold font-mono text-[#10B981] tabular-nums mt-1">
+          <div className="text-2xl font-bold font-mono text-[#1D8B94] tabular-nums mt-1">
             {activeProducts}
           </div>
           <div className="text-[11px] text-slate-400 mt-1">Available for new subscriptions</div>
@@ -292,14 +292,14 @@ export const ProductsView: React.FC<ProductsViewProps> = ({ onShowToast }) => {
             <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
               Total Variants
             </span>
-            <div className="w-7 h-7 rounded-lg bg-[#102B4E]/5 flex items-center justify-center text-[#102B4E]">
+            <div className="w-7 h-7 rounded-lg bg-[#04222B]/5 flex items-center justify-center text-[#04222B]">
               <Layers className="w-3.5 h-3.5" />
             </div>
           </div>
-          <div className="text-2xl font-bold font-mono text-[#102B4E] tabular-nums mt-1">
+          <div className="text-2xl font-bold font-mono text-[#04222B] tabular-nums mt-1">
             {totalProductVariants}
           </div>
-          <div className="text-[11px] text-[#10B981] font-semibold font-mono mt-1">
+          <div className="text-[11px] text-[#1D8B94] font-semibold font-mono mt-1">
             Avg {(totalProductVariants / (totalProducts || 1)).toFixed(1)} variants / product
           </div>
         </div>
@@ -317,7 +317,7 @@ export const ProductsView: React.FC<ProductsViewProps> = ({ onShowToast }) => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search products by name, description, SKU..."
-              className="w-full pl-9 pr-4 py-1.5 text-xs bg-white border border-slate-200 rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#102B4E] shadow-2xs"
+              className="w-full pl-9 pr-4 py-1.5 text-xs bg-white border border-slate-200 rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#1D8B94] shadow-2xs"
             />
             {searchQuery && (
               <button
@@ -337,7 +337,7 @@ export const ProductsView: React.FC<ProductsViewProps> = ({ onShowToast }) => {
               <select
                 value={typeFilter}
                 onChange={(e) => setTypeFilter(e.target.value)}
-                className="px-2.5 py-1 text-xs bg-white border border-slate-200 rounded-lg text-slate-700 focus:outline-none focus:ring-1 focus:ring-[#102B4E] cursor-pointer"
+                className="px-2.5 py-1 text-xs bg-white border border-slate-200 rounded-lg text-slate-700 focus:outline-none focus:ring-1 focus:ring-[#1D8B94] cursor-pointer"
               >
                 <option value="all">All Types</option>
                 <option value="Software">Software</option>
@@ -355,7 +355,7 @@ export const ProductsView: React.FC<ProductsViewProps> = ({ onShowToast }) => {
                 onClick={() => setStatusFilter('all')}
                 className={`px-2.5 py-1 rounded-md font-semibold text-[11px] transition-all cursor-pointer ${
                   statusFilter === 'all'
-                    ? 'bg-white text-[#102B4E] shadow-xs'
+                    ? 'bg-white text-[#04222B] shadow-xs'
                     : 'text-slate-500 hover:text-slate-900'
                 }`}
               >
@@ -365,7 +365,7 @@ export const ProductsView: React.FC<ProductsViewProps> = ({ onShowToast }) => {
                 onClick={() => setStatusFilter('active')}
                 className={`px-2.5 py-1 rounded-md font-semibold text-[11px] transition-all cursor-pointer ${
                   statusFilter === 'active'
-                    ? 'bg-white text-[#10B981] shadow-xs'
+                    ? 'bg-white text-[#1D8B94] shadow-xs'
                     : 'text-slate-500 hover:text-slate-900'
                 }`}
               >
@@ -423,7 +423,7 @@ export const ProductsView: React.FC<ProductsViewProps> = ({ onShowToast }) => {
                     {/* Product Name & Description */}
                     <td className="py-3.5 px-4">
                       <div className="flex items-center gap-2.5">
-                        <div className="w-7 h-7 rounded-lg bg-[#102B4E] text-[#10B981] flex items-center justify-center shrink-0">
+                        <div className="w-7 h-7 rounded-lg bg-[#04222B] text-[#4FB8B4] flex items-center justify-center shrink-0">
                           <Package className="w-3.5 h-3.5" />
                         </div>
                         <div className="min-w-0">
@@ -445,7 +445,7 @@ export const ProductsView: React.FC<ProductsViewProps> = ({ onShowToast }) => {
                     </td>
 
                     {/* Sales Price */}
-                    <td className="py-3.5 px-4 text-right whitespace-nowrap font-mono font-bold text-[#102B4E] tabular-nums text-xs">
+                    <td className="py-3.5 px-4 text-right whitespace-nowrap font-mono font-bold text-[#04222B] tabular-nums text-xs">
                       ${product.salesPrice.toLocaleString(undefined, { minimumFractionDigits: 2 })}
                     </td>
 
@@ -457,10 +457,10 @@ export const ProductsView: React.FC<ProductsViewProps> = ({ onShowToast }) => {
                     {/* Number of Variants */}
                     <td className="py-3.5 px-4 text-center whitespace-nowrap">
                       <span
-                        className="inline-flex items-center gap-1 font-mono text-xs font-semibold px-2 py-0.5 rounded bg-blue-50 text-[#102B4E]"
+                        className="inline-flex items-center gap-1 font-mono text-xs font-semibold px-2 py-0.5 rounded bg-[#E2F4F0] text-[#0A3D4A] border border-[#98D8D0]/60"
                         title={product.variants.map((v) => `${v.name} (+$${v.additionalPrice})`).join(', ')}
                       >
-                        <Layers className="w-3 h-3 text-[#10B981]" />
+                        <Layers className="w-3 h-3 text-[#1D8B94]" />
                         <span>{product.variants.length}</span>
                       </span>
                     </td>
@@ -468,7 +468,7 @@ export const ProductsView: React.FC<ProductsViewProps> = ({ onShowToast }) => {
                     {/* Status */}
                     <td className="py-3.5 px-4 whitespace-nowrap">
                       {product.status === 'active' ? (
-                        <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#10B981]">
+                        <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#1D8B94]">
                           <CheckCircle2 className="w-3.5 h-3.5" />
                           <span>Active</span>
                         </span>
@@ -494,7 +494,7 @@ export const ProductsView: React.FC<ProductsViewProps> = ({ onShowToast }) => {
                         <button
                           onClick={() => handleOpenDetail(product)}
                           title="View Specifications & Variants"
-                          className="p-1.5 text-slate-500 hover:text-[#102B4E] hover:bg-slate-100 rounded-md transition-colors cursor-pointer"
+                          className="p-1.5 text-slate-500 hover:text-[#1D8B94] hover:bg-[#E2F4F0]/60 rounded-md transition-colors cursor-pointer"
                         >
                           <Eye className="w-3.5 h-3.5" />
                         </button>
@@ -502,7 +502,7 @@ export const ProductsView: React.FC<ProductsViewProps> = ({ onShowToast }) => {
                         <button
                           onClick={() => handleOpenEdit(product)}
                           title="Edit Product & Variants"
-                          className="p-1.5 text-slate-500 hover:text-[#102B4E] hover:bg-slate-100 rounded-md transition-colors cursor-pointer"
+                          className="p-1.5 text-slate-500 hover:text-[#1D8B94] hover:bg-[#E2F4F0]/60 rounded-md transition-colors cursor-pointer"
                         >
                           <Edit3 className="w-3.5 h-3.5" />
                         </button>

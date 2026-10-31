@@ -176,11 +176,11 @@ export const CustomersView: React.FC<CustomersViewProps> = ({ onShowToast }) => 
       {/* Page Header */}
       <div className="bg-white rounded-2xl border border-slate-200/80 p-5 sm:p-6 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2 text-xs font-semibold text-[#10B981]">
-            <span className="w-2 h-2 rounded-full bg-[#10B981]" />
+          <div className="flex items-center gap-2 text-xs font-semibold text-[#1D8B94]">
+            <span className="w-2 h-2 rounded-full bg-[#1D8B94]" />
             <span>Master Account Management</span>
           </div>
-          <h1 className="text-xl sm:text-2xl font-bold text-[#102B4E] mt-1 tracking-tight">
+          <h1 className="text-xl sm:text-2xl font-bold text-[#04222B] mt-1 tracking-tight">
             Customer Directory
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
@@ -217,9 +217,9 @@ export const CustomersView: React.FC<CustomersViewProps> = ({ onShowToast }) => 
 
           <button
             onClick={handleOpenAdd}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-white bg-[#102B4E] hover:bg-[#183B6B] active:bg-[#0A1C33] rounded-lg shadow-xs transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-white bg-[#1D8B94] hover:bg-[#10606F] active:bg-[#0A3D4A] rounded-lg shadow-xs transition-colors cursor-pointer"
           >
-            <Plus className="w-3.5 h-3.5 text-[#10B981]" />
+            <Plus className="w-3.5 h-3.5 text-[#E2F4F0]" />
             <span>Add Customer</span>
           </button>
         </div>
@@ -232,11 +232,11 @@ export const CustomersView: React.FC<CustomersViewProps> = ({ onShowToast }) => 
             <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
               Total Accounts
             </span>
-            <div className="w-7 h-7 rounded-lg bg-[#102B4E]/5 flex items-center justify-center text-[#102B4E]">
+            <div className="w-7 h-7 rounded-lg bg-[#04222B]/5 flex items-center justify-center text-[#04222B]">
               <Users className="w-3.5 h-3.5" />
             </div>
           </div>
-          <div className="text-2xl font-bold font-mono text-[#102B4E] tabular-nums mt-1">
+          <div className="text-2xl font-bold font-mono text-[#04222B] tabular-nums mt-1">
             {totalCount}
           </div>
           <div className="text-[11px] text-slate-400 mt-1">Master customer entities</div>
@@ -247,11 +247,11 @@ export const CustomersView: React.FC<CustomersViewProps> = ({ onShowToast }) => 
             <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
               Active Subscribers
             </span>
-            <div className="w-7 h-7 rounded-lg bg-[#10B981]/10 flex items-center justify-center text-[#10B981]">
+            <div className="w-7 h-7 rounded-lg bg-[#E2F4F0] flex items-center justify-center text-[#1D8B94]">
               <UserCheck className="w-3.5 h-3.5" />
             </div>
           </div>
-          <div className="text-2xl font-bold font-mono text-[#10B981] tabular-nums mt-1">
+          <div className="text-2xl font-bold font-mono text-[#1D8B94] tabular-nums mt-1">
             {activeCount}
           </div>
           <div className="text-[11px] text-slate-400 mt-1">
@@ -279,14 +279,14 @@ export const CustomersView: React.FC<CustomersViewProps> = ({ onShowToast }) => 
             <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
               Cumulative Revenue
             </span>
-            <div className="w-7 h-7 rounded-lg bg-[#102B4E]/5 flex items-center justify-center text-[#102B4E]">
+            <div className="w-7 h-7 rounded-lg bg-[#04222B]/5 flex items-center justify-center text-[#04222B]">
               <DollarSign className="w-3.5 h-3.5" />
             </div>
           </div>
-          <div className="text-2xl font-bold font-mono text-[#102B4E] tabular-nums mt-1">
+          <div className="text-2xl font-bold font-mono text-[#04222B] tabular-nums mt-1">
             ${totalRevenue.toLocaleString(undefined, { maximumFractionDigits: 0 })}
           </div>
-          <div className="text-[11px] text-[#10B981] font-semibold font-mono mt-1">
+          <div className="text-[11px] text-[#1D8B94] font-semibold font-mono mt-1">
             Avg ${(totalRevenue / (totalCount || 1)).toFixed(0)} / account
           </div>
         </div>
@@ -304,7 +304,7 @@ export const CustomersView: React.FC<CustomersViewProps> = ({ onShowToast }) => 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by customer name, email, or company..."
-              className="w-full pl-9 pr-4 py-1.5 text-xs bg-white border border-slate-200 rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#102B4E] shadow-2xs"
+              className="w-full pl-9 pr-4 py-1.5 text-xs bg-white border border-slate-200 rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#1D8B94] shadow-2xs"
             />
             {searchQuery && (
               <button
@@ -323,7 +323,7 @@ export const CustomersView: React.FC<CustomersViewProps> = ({ onShowToast }) => 
                 onClick={() => setStatusFilter('all')}
                 className={`px-3 py-1 rounded-md font-semibold text-[11px] transition-all cursor-pointer ${
                   statusFilter === 'all'
-                    ? 'bg-white text-[#102B4E] shadow-xs'
+                    ? 'bg-white text-[#04222B] shadow-xs'
                     : 'text-slate-500 hover:text-slate-900'
                 }`}
               >
@@ -333,7 +333,7 @@ export const CustomersView: React.FC<CustomersViewProps> = ({ onShowToast }) => 
                 onClick={() => setStatusFilter('active')}
                 className={`px-3 py-1 rounded-md font-semibold text-[11px] transition-all cursor-pointer ${
                   statusFilter === 'active'
-                    ? 'bg-white text-[#10B981] shadow-xs'
+                    ? 'bg-white text-[#1D8B94] shadow-xs'
                     : 'text-slate-500 hover:text-slate-900'
                 }`}
               >
@@ -381,7 +381,7 @@ export const CustomersView: React.FC<CustomersViewProps> = ({ onShowToast }) => 
                     {searchQuery && (
                       <button
                         onClick={() => setSearchQuery('')}
-                        className="mt-3 text-xs font-semibold text-[#102B4E] hover:underline"
+                        className="mt-3 text-xs font-semibold text-[#1D8B94] hover:underline"
                       >
                         Clear search query
                       </button>
@@ -398,7 +398,7 @@ export const CustomersView: React.FC<CustomersViewProps> = ({ onShowToast }) => 
                     {/* Customer Name & Email */}
                     <td className="py-3.5 px-4">
                       <div className="flex items-center gap-2.5">
-                        <div className="w-7 h-7 rounded-lg bg-[#102B4E] text-[#10B981] flex items-center justify-center font-bold text-[11px] shrink-0">
+                        <div className="w-7 h-7 rounded-lg bg-[#04222B] text-[#4FB8B4] flex items-center justify-center font-bold text-[11px] shrink-0">
                           {customer.name
                             .split(' ')
                             .map((n) => n[0])
@@ -432,7 +432,7 @@ export const CustomersView: React.FC<CustomersViewProps> = ({ onShowToast }) => 
                       <span
                         className={`inline-block font-mono text-xs font-bold px-2 py-0.5 rounded ${
                           customer.subscriptionCount > 0
-                            ? 'bg-[#102B4E]/10 text-[#102B4E]'
+                            ? 'bg-[#E2F4F0] text-[#0A3D4A]'
                             : 'bg-slate-100 text-slate-400'
                         }`}
                       >
@@ -441,14 +441,14 @@ export const CustomersView: React.FC<CustomersViewProps> = ({ onShowToast }) => 
                     </td>
 
                     {/* Total Revenue */}
-                    <td className="py-3.5 px-4 text-right whitespace-nowrap font-mono font-bold text-[#102B4E] tabular-nums text-xs">
+                    <td className="py-3.5 px-4 text-right whitespace-nowrap font-mono font-bold text-[#04222B] tabular-nums text-xs">
                       ${customer.totalRevenue.toLocaleString(undefined, { minimumFractionDigits: 2 })}
                     </td>
 
                     {/* Status */}
                     <td className="py-3.5 px-4 whitespace-nowrap">
                       {customer.status === 'active' ? (
-                        <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#10B981]">
+                        <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#1D8B94]">
                           <CheckCircle2 className="w-3.5 h-3.5" />
                           <span>Active</span>
                         </span>
@@ -469,7 +469,7 @@ export const CustomersView: React.FC<CustomersViewProps> = ({ onShowToast }) => 
                         <button
                           onClick={() => handleOpenProfile(customer)}
                           title="View Profile"
-                          className="p-1.5 text-slate-500 hover:text-[#102B4E] hover:bg-slate-100 rounded-md transition-colors cursor-pointer"
+                          className="p-1.5 text-slate-500 hover:text-[#1D8B94] hover:bg-[#E2F4F0]/60 rounded-md transition-colors cursor-pointer"
                         >
                           <Eye className="w-3.5 h-3.5" />
                         </button>
@@ -477,7 +477,7 @@ export const CustomersView: React.FC<CustomersViewProps> = ({ onShowToast }) => 
                         <button
                           onClick={() => handleOpenEdit(customer)}
                           title="Edit Details"
-                          className="p-1.5 text-slate-500 hover:text-[#102B4E] hover:bg-slate-100 rounded-md transition-colors cursor-pointer"
+                          className="p-1.5 text-slate-500 hover:text-[#1D8B94] hover:bg-[#E2F4F0]/60 rounded-md transition-colors cursor-pointer"
                         >
                           <Edit3 className="w-3.5 h-3.5" />
                         </button>

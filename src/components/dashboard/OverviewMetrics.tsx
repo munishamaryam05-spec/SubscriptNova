@@ -26,18 +26,18 @@ export const OverviewMetrics: React.FC = () => {
                 <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                   {metric.title}
                 </span>
-                <div className="w-7 h-7 rounded-lg bg-[#102B4E]/5 flex items-center justify-center text-[#102B4E]">
+                <div className="w-7 h-7 rounded-lg bg-[#E2F4F0] flex items-center justify-center text-[#1D8B94]">
                   <Icon className="w-3.5 h-3.5" />
                 </div>
               </div>
 
               <div className="flex items-baseline justify-between gap-2 mt-1">
-                <div className="text-2xl font-bold text-[#102B4E] font-mono tabular-nums tracking-tight">
+                <div className="text-2xl font-bold text-[#04222B] font-mono tabular-nums tracking-tight">
                   {metric.value}
                 </div>
                 <div
                   className={`inline-flex items-center text-xs font-semibold font-mono ${
-                    metric.isPositive ? 'text-[#10B981]' : 'text-[#EF4444]'
+                    metric.isPositive ? 'text-[#1D8B94]' : 'text-[#EF4444]'
                   }`}
                 >
                   {metric.isPositive ? (
@@ -65,7 +65,7 @@ export const OverviewMetrics: React.FC = () => {
             <div key={item.label} className={idx > 0 ? 'pt-2 md:pt-0 md:pl-4' : ''}>
               <div className="text-[11px] text-slate-500 truncate">{item.label}</div>
               <div className="flex items-baseline gap-2 mt-0.5">
-                <span className="text-base font-bold text-[#102B4E] font-mono tabular-nums">
+                <span className="text-base font-bold text-[#04222B] font-mono tabular-nums">
                   {item.value}
                 </span>
                 <span className="text-[11px] font-medium text-slate-500">{item.change}</span>

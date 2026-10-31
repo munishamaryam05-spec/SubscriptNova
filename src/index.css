@@ -6,21 +6,31 @@
 }
 
 :root {
-  --brand-navy: #102B4E;
-  --brand-navy-dark: #0A1C33;
-  --brand-navy-light: #1A3E6D;
-  --brand-emerald: #10B981;
+  /* Reference Palette: Deep Teal, Aqua & Mint */
+  --brand-deepest: #04222B;
+  --brand-dark: #0A3D4A;
+  --brand-ocean: #10606F;
+  --brand-primary: #1D8B94;
+  --brand-aqua: #4FB8B4;
+  --brand-soft-mint: #98D8D0;
+  --brand-pale-mint: #E2F4F0;
+
+  /* Semantic Aliases */
+  --brand-navy: #04222B;
+  --brand-navy-dark: #04222B;
+  --brand-navy-light: #0A3D4A;
+  --brand-emerald: #1D8B94;
   --brand-amber: #F59E0B;
   --brand-rose: #EF4444;
 }
 
 body {
   font-family: var(--font-sans);
-  background-color: #F8FAFC;
-  color: #1E293B;
+  background-color: #F6FAF9;
+  color: #0A3D4A;
 }
 
-/* Custom subtle scrollbar */
+/* Custom subtle scrollbar with soft mint hover */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -33,5 +43,5 @@ body {
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #94A3B8;
+  background: #98D8D0;
 }

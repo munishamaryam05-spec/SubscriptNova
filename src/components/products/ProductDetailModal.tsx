@@ -41,24 +41,24 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         {/* Header */}
         <div className="p-5 border-b border-slate-200 bg-slate-50/70 flex items-start justify-between gap-4">
           <div className="flex items-start gap-3.5">
-            <div className="w-11 h-11 rounded-xl bg-[#102B4E] text-[#10B981] flex items-center justify-center shadow-xs">
+            <div className="w-11 h-11 rounded-xl bg-[#04222B] text-[#4FB8B4] flex items-center justify-center shadow-xs">
               <Package className="w-5 h-5" />
             </div>
             <div>
               <div className="flex items-center gap-2 flex-wrap">
-                <h2 className="text-base sm:text-lg font-bold text-[#102B4E] tracking-tight">
+                <h2 className="text-base sm:text-lg font-bold text-[#04222B] tracking-tight">
                   {product.name}
                 </h2>
                 <span
                   className={`text-[10px] font-mono px-2 py-0.5 rounded font-semibold ${
                     product.status === 'active'
-                      ? 'bg-emerald-50 text-[#10B981] border border-emerald-200/60'
+                      ? 'bg-[#E2F4F0] text-[#0A3D4A] border border-[#98D8D0]'
                       : 'bg-slate-100 text-slate-500 border border-slate-200'
                   }`}
                 >
                   {product.status.toUpperCase()}
                 </span>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200/60">
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#E2F4F0]/60 text-[#0A3D4A] border border-[#98D8D0]/60">
                   {product.productType}
                 </span>
               </div>
@@ -94,7 +94,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             <div className="text-[10px] uppercase font-semibold text-slate-400 tracking-wider">
               Base Sales Price
             </div>
-            <div className="text-base sm:text-lg font-bold font-mono text-[#102B4E] tabular-nums mt-0.5">
+            <div className="text-base sm:text-lg font-bold font-mono text-[#04222B] tabular-nums mt-0.5">
               ${product.salesPrice.toLocaleString(undefined, { minimumFractionDigits: 2 })}
             </div>
             <div className="text-[10px] text-slate-400 mt-0.5">Before variant add-ons</div>
@@ -114,10 +114,10 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             <div className="text-[10px] uppercase font-semibold text-slate-400 tracking-wider">
               Calculated Margin
             </div>
-            <div className="text-base sm:text-lg font-bold font-mono text-[#10B981] tabular-nums mt-0.5">
+            <div className="text-base sm:text-lg font-bold font-mono text-[#1D8B94] tabular-nums mt-0.5">
               ${margin.toFixed(2)} ({marginPercent}%)
             </div>
-            <div className="text-[10px] text-[#10B981] font-medium mt-0.5">Gross profit / sale</div>
+            <div className="text-[10px] text-[#1D8B94] font-medium mt-0.5">Gross profit / sale</div>
           </div>
         </div>
 
@@ -149,8 +149,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           {/* Variants Breakdown */}
           <div>
             <div className="flex items-center justify-between mb-2">
-              <h4 className="text-xs font-bold text-[#102B4E] uppercase tracking-wider flex items-center gap-1.5">
-                <Layers className="w-3.5 h-3.5 text-[#10B981]" />
+              <h4 className="text-xs font-bold text-[#04222B] uppercase tracking-wider flex items-center gap-1.5">
+                <Layers className="w-3.5 h-3.5 text-[#1D8B94]" />
                 <span>Configured Product Variants ({product.variants.length})</span>
               </h4>
               <span className="text-[11px] text-slate-400 font-mono">
@@ -185,14 +185,14 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                         <td className="py-3 px-3 text-right font-mono text-slate-600 tabular-nums">
                           +${variant.additionalPrice.toFixed(2)}
                         </td>
-                        <td className="py-3 px-3 text-right font-mono font-bold text-[#102B4E] tabular-nums">
+                        <td className="py-3 px-3 text-right font-mono font-bold text-[#04222B] tabular-nums">
                           ${finalPrice.toFixed(2)}
                         </td>
                         <td className="py-3 px-3 text-center whitespace-nowrap">
                           <span
                             className={`text-[9px] font-mono uppercase px-2 py-0.5 rounded font-semibold ${
                               variant.availabilityStatus === 'available'
-                                ? 'bg-emerald-50 text-[#10B981]'
+                                ? 'bg-[#E2F4F0] text-[#0A3D4A] border border-[#98D8D0]'
                                 : variant.availabilityStatus === 'out_of_stock'
                                 ? 'bg-amber-50 text-[#F59E0B]'
                                 : 'bg-slate-200 text-slate-600'
@@ -212,13 +212,13 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           {/* Linked Subscriptions Protected Guard Status */}
           <div className="pt-2">
             {product.linkedSubscriptionsCount > 0 ? (
-              <div className="p-3.5 rounded-xl bg-blue-50/60 border border-blue-200/70 flex items-center gap-3">
-                <Lock className="w-5 h-5 text-[#102B4E] shrink-0" />
+              <div className="p-3.5 rounded-xl bg-[#E2F4F0]/60 border border-[#98D8D0]/80 flex items-center gap-3">
+                <Lock className="w-5 h-5 text-[#0A3D4A] shrink-0" />
                 <div>
-                  <div className="font-bold text-[#102B4E]">Subscription Protected Product</div>
+                  <div className="font-bold text-[#0A3D4A]">Subscription Protected Product</div>
                   <div className="text-[11px] text-slate-600 mt-0.5">
                     Currently actively referenced by{' '}
-                    <span className="font-semibold text-[#102B4E]">
+                    <span className="font-semibold text-[#0A3D4A]">
                       {product.linkedSubscriptionsCount} active customer subscriptions
                     </span>
                     . Deletion is automatically locked to protect historical billing integrity.
@@ -227,7 +227,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               </div>
             ) : (
               <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center gap-3">
-                <CheckCircle2 className="w-5 h-5 text-[#10B981] shrink-0" />
+                <CheckCircle2 className="w-5 h-5 text-[#1D8B94] shrink-0" />
                 <div>
                   <div className="font-semibold text-slate-800">No Active Subscriptions Linked</div>
                   <div className="text-[11px] text-slate-500 mt-0.5">
@@ -246,7 +246,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           </div>
           <button
             onClick={onClose}
-            className="px-4 py-1.5 text-xs font-semibold text-white bg-[#102B4E] hover:bg-[#183B6B] rounded-lg transition-colors cursor-pointer"
+            className="px-4 py-1.5 text-xs font-semibold text-white bg-[#1D8B94] hover:bg-[#10606F] rounded-lg transition-colors cursor-pointer"
           >
             Close Overview
           </button>
