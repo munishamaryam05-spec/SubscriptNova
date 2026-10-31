@@ -111,7 +111,7 @@ SubscriptNova/
 ├── index.html
 └── README.md
 ```
-
+Deployed link:https://subscriptnova.vercel.app/
 ## Project Status
 
 SubscriptNova is currently under active development as a prototype. The core subscription management and billing modules are implemented, while payment management, revenue leakage detection and advanced analytics are planned for the next development phase.
