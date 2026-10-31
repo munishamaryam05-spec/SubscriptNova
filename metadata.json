@@ -1,0 +1,6 @@
+{
+  "name": "SubscriptNova",
+  "description": "Subscription management and revenue automation platform to simplify subscriptions, automate billing, and understand revenue.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
